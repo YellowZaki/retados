@@ -1,0 +1,5 @@
+CREATE TABLE tutoria (
+    "ID" INTEGER, 
+    "ID_ALUMNO" INTEGER, 
+    "ID_USUARIO" INTEGER
+)

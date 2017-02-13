@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Alegreya Sans Light'), local('AlegreyaSans-Light'), url(http://fonts.gstatic.com/s/alegreyasans/v3/11EDm-lum6tskJMBbdy9aeNC-0xib1SK7Oln1iLdt4o.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Kristi';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Kristi'), url(http://fonts.gstatic.com/s/kristi/v7/xbewG8OIQ1-9CYdW4rDqlA.woff2) format('woff2');

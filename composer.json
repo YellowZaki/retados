@@ -1,0 +1,22 @@
+{
+  "repositories": [{
+      "type": "vcs",
+      "url": "https://github.com/tuupola/slim-fake-mcrypt.git"
+  }],
+  "require": {
+    "tuupola/slim-fake-mcrypt": "dev-master",
+    "slim/slim": "2.*",
+    "slim/extras": "*",
+	"twig/twig": "1.*",
+    "swiftmailer/swiftmailer": "5.*",
+    "katzgrau/klogger": "dev-master",
+    "google/apiclient": "*",
+    "phpmailer/phpmailer": "~5.2",
+    "respect/validation": "0.6.*",
+    "dompdf/dompdf": "dev-master",
+    "jeremykendall/slim-auth": "1.0.*"
+  },
+  "require-dev": {
+	"phpunit/phpunit": "4.8.*"
+  }
+}

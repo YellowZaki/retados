@@ -1,0 +1,2 @@
+select count (*)
+From tablasbd
