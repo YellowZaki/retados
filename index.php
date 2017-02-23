@@ -105,6 +105,13 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	});
 });
 
+	$app->get('/borrar', function() use ($app){
+		global $twig;
+		AccesoDatos::borrar($app->db,"PREGUNTAS", $app->request()->get('idPregunta'));
+		$app->redirect('/listadopreguntas');
+	}); 
+
+
 $app->get('/about', function() use ($app){
 	global $twig;
 	echo $twig->render('about.php');  
