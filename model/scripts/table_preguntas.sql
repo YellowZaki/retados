@@ -1,0 +1,5 @@
+CREATE TABLE "main"."preguntas" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "TEXTO" TEXT
+)
+
