@@ -105,11 +105,28 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	});
 });
 
+$app->group('/preguntas', function () use ($app) {
+	
 	$app->get('/borrar', function() use ($app){
 		global $twig;
 		AccesoDatos::borrar($app->db,"PREGUNTAS", $app->request()->get('idPregunta'));
 		$app->redirect('/listadopreguntas');
-	}); 
+	});
+	
+});
+	
+	$app->post('/id', function() use ($app){
+			global $twig;
+			
+			$id=$app->request()->post('valor');
+			
+			$miArray=AccesoDatos::recuperar($app->db, "partedatosalumno",$id);
+			
+			// TODO cargar la asignatura más probable (la más usada por ese profesor para el grupo del alumno)
+			
+            echo json_encode($miArray);
+			
+		}); 
 
 
 $app->get('/about', function() use ($app){
