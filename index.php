@@ -113,20 +113,20 @@ $app->group('/preguntas', function () use ($app) {
 		$app->redirect('/listadopreguntas');
 	});
 	
-});
+
 	
-	$app->post('/id', function() use ($app){
+	$app->post('/cargar', function() use ($app){
 			global $twig;
 			
-			$id=$app->request()->post('valor');
-			
-			$miArray=AccesoDatos::recuperar($app->db, "partedatosalumno",$id);
+			$miArray=AccesoDatos::recuperar($app->db, "PREGUNTAS", $app->request()->get('ID'));
 			
 			// TODO cargar la asignatura más probable (la más usada por ese profesor para el grupo del alumno)
 			
             echo json_encode($miArray);
 			
 		}); 
+		
+});
 
 
 $app->get('/about', function() use ($app){
