@@ -41,6 +41,7 @@
 require 	 	'vendor/autoload.php';
 
 require_once	'controller/Utils.php';
+require_once	'controller/Pregunta.php';
 require_once	'controller/Email.php';
 require_once	'controller/GoogleDrive.php';
 require_once	'controller/LoginClave.php';
@@ -110,22 +111,16 @@ $app->group('/preguntas', function () use ($app) {
 	$app->get('/borrar', function() use ($app){
 		global $twig;
 		AccesoDatos::borrar($app->db,"PREGUNTAS", $app->request()->get('idPregunta'));
-		$app->redirect('/listadopreguntas');
+		$app->redirect('/preguntas');
 	});
 	
+	$app->get('/cargar', function() use ($app){
+		global $twig;
+		$datos=Pregunta::cargarPregunta($app->request()->get('ID'));
+		echo json_encode($datos);
+	});
 
-	
-	$app->post('/cargar', function() use ($app){
-			global $twig;
 			
-			$miArray=AccesoDatos::recuperar($app->db, "PREGUNTAS", $app->request()->get('ID'));
-			
-			// TODO cargar la asignatura más probable (la más usada por ese profesor para el grupo del alumno)
-			
-            echo json_encode($miArray);
-			
-		}); 
-		
 });
 
 
