@@ -110,12 +110,12 @@ $app->group('/preguntas', function () use ($app) {
 	$app->get('/borrar', function() use ($app){
 		global $twig;
 		AccesoDatos::borrar($app->db,"PREGUNTAS", $app->request()->get('idPregunta'));
-		$app->redirect('/listadopreguntas');
+		$app->redirect('/preguntas');
 	});
 	
 
 	
-	$app->post('/cargar', function() use ($app){
+	$app->get('/cargar', function() use ($app){
 			global $twig;
 			
 			$miArray=AccesoDatos::recuperar($app->db, "PREGUNTAS", $app->request()->get('ID'));
