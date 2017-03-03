@@ -1,0 +1,48 @@
+librdf0 - Redland Resource Description Framework (RDF) library
+libreoffice-base-drivers - Database connectivity drivers for LibreOffice
+libspatialite3 - Geospatial extension for SQLite - libraries
+exim4-daemon-heavy - Exim MTA (v4) daemon with extended features, including exiscan-acl
+libaprutil1-dbd-sqlite3 - Apache Portable Runtime Utility Library - SQLite3 Driver
+libdbd-sqlite3 - SQLite3 database driver for libdbi
+libmono-sqlite4.0-cil - Mono Sqlite library (for CLI 4.0)
+nova-api - OpenStack Compute - API frontend
+nova-cert - OpenStack Compute - certificate management
+nova-common - OpenStack Compute - common files
+nova-compute - OpenStack Compute - compute node
+nova-compute-kvm - OpenStack Compute - compute node (KVM)
+nova-compute-lxc - OpenStack Compute - compute node (LXC)
+nova-doc - OpenStack Compute - documentation
+nova-network - OpenStack Compute - Network manager
+nova-objectstore - OpenStack Compute - object store
+nova-scheduler - OpenStack Compute - virtual machine scheduler
+nova-vncproxy - OpenStack Compute - VNC proxy
+nova-volume - OpenStack Compute - storage
+php5-sqlite - SQLite module for php5
+pidgin - graphical multi-protocol instant messaging client for X
+python-lockfile - file locking library for Python
+python-logilab-common - useful miscellaneous modules used by Logilab projects
+python-migrate - Database schema migration for SQLAlchemy
+python-nova - OpenStack Compute Python libraries
+sqlite3 - Command line interface for SQLite 3
+bacula-common-sqlite3 - copia de seguridad de red, recuperación y verificación - archivos comunes SQLite v3
+bacula-director-sqlite3 - Copia de seguridad, recuperación y verificación en redes - almacenamiento SQLite 3 para Director
+bacula-sd-sqlite3 - Copia de seguridad, recuperación y verificación de redes - herramientas SD SQLite 3
+dbconfig-common - entorno de trabajo común para empaquetar aplicaciones de bases de datos
+libdbd-sqlite3-perl - Perl DBI driver with a self-contained RDBMS
+libdbi-perl - Interfaz de base de datos de Perl (DBI)
+libmono-sqlite2.0-cil - Biblioteca Mono Sqlite (para CLI 2.0)
+libqt4-sql-sqlite - controlador de base de datos SQLite 3 de Qt 4
+libsasl2-modules-sql - Cyrus SASL - módulos de autenticación ecnhufables (SQL)
+libsqlite3-0 - biblioteca compartida de SQLite
+libsqlite3-0-dbg - Símbolos de depuración de SQLite 3
+libsqlite3-dev - Archivos de desarrollo de SQLite 3
+sqlite3-doc - Documentación de SQLite 3
+php-sqlite3 - SQLite3 module for PHP [default]
+php7.0-sqlite3 - SQLite3 module for PHP
+php5.6-sqlite3 - SQLite3 module for PHP
+php7.1-sqlite3 - SQLite3 module for PHP
+gambas2-complementos-meta - Metapaquete de complementos pa...
+gambas2-gb-db-sqlite2 - The Gambas sqlite2 driver database component
+gambas2-gb-db-sqlite3 - The Gambas sqlite3 driver database component
+libsqlite0 - SQLite shared library
+python-pysqlite2 - Python interface to SQLite 3
