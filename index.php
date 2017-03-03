@@ -119,6 +119,13 @@ $app->group('/preguntas', function () use ($app) {
 		$datos=Pregunta::cargarPregunta($app->request()->get('ID'));
 		echo json_encode($datos);
 	});
+	$app->post('/guardar', function() use ($app){
+		global $twig;
+		$valores=Utilidades::getDatosPreguntas($app);
+		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
+		$app->redirect('/preguntas');
+		
+	});
 
 			
 });
