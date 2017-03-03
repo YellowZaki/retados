@@ -116,7 +116,7 @@ $app->group('/preguntas', function () use ($app) {
 	
 	$app->get('/cargar', function() use ($app){
 		global $twig;
-		$datos=Pregunta::cargarPregunta($app->request()->get('ID'));
+		$datos=Pregunta::cargar($app->request()->get('ID'));
 		echo json_encode($datos);
 	});
 	$app->post('/guardar', function() use ($app){
@@ -126,7 +126,6 @@ $app->group('/preguntas', function () use ($app) {
 		$app->redirect('/preguntas');
 		
 	});
-
 			
 });
 
