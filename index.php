@@ -106,13 +106,13 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	});
 });
 
-$app->group('/preguntas', function () use ($app) {
+$app->group('/preguntas', function() use ($app){
 	
-	$app->get('/borrar', function() use ($app){
+  $app->get('/borrar', function() use ($app){
 		global $twig;
-		AccesoDatos::borrar($app->db,"PREGUNTAS", $app->request()->get('idPregunta'));
+		AccesoDatos::borrar($app->db, "PREGUNTAS", $app->request()->get('idPregunta'));
 		$app->redirect('/preguntas');
-	});
+	}); 	
 	
 	$app->get('/cargar', function() use ($app){
 		global $twig;
