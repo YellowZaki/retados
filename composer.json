@@ -7,7 +7,7 @@
     "tuupola/slim-fake-mcrypt": "dev-master",
     "slim/slim": "2.*",
     "slim/extras": "*",
-	"twig/twig": "*",
+	"twig/twig": "1.*",
     "swiftmailer/swiftmailer": "5.*",
     "katzgrau/klogger": "dev-master",
     "google/apiclient": "*",

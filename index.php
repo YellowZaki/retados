@@ -116,20 +116,33 @@ $app->group('/preguntas', function () use ($app) {
 	
 	$app->get('/cargar', function() use ($app){
 		global $twig;
-		$datos=Pregunta::cargarPregunta($app->request()->get('ID'));
+		$datos=Pregunta::cargar($app->request()->get('ID'));
 		echo json_encode($datos);
 	});
+	
 	$app->post('/guardar', function() use ($app){
 		global $twig;
 		$valores=Utilidades::getDatosPreguntas($app);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
 		$app->redirect('/preguntas');
-		
 	});
-
-			
 });
 
+/*
+ * Este bloque irá fuera tan pronto tengamos el primer formulario operativo
+ */
+ 
+$app->group('/prueba', function () use ($app) {
+	$app->get('/', function() use ($app){
+		global $twig;
+		echo $twig->render('prueba.php');
+	});
+	$app->post('/guardar', function() use ($app){
+		global $twig;
+		$valores=Utilidades::getDatosFormulario($app);
+		echo json_encode($valores);
+	});
+});
 
 $app->get('/about', function() use ($app){
 	global $twig;
