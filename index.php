@@ -126,6 +126,7 @@ $app->group('/preguntas', function () use ($app) {
 		global $twig;
 		$valores=Utilidades::getDatosPreguntas($app);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
+		$app->redirect('/preguntas');
 		$valores['error']="Pregunta guardada correctamente";
 		$valores['exito']="Error al guardar la pregunta";
 /*
