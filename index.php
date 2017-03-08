@@ -123,7 +123,7 @@ $app->group('/preguntas', function() use ($app){
 	    $app->get('/', function() use ($app){
 		global $twig;
 		
-		$r=AccesoDatos::listar($app->db, "PREGUNTAS", "TEXTO");
+		$r=AccesoDatos::listar($app->db, "PREGUNTAS", "ID, TEXTO");
 		$valores=array('preguntas'=>$r);
 		
 		echo $twig->render('preguntas.php',$valores);  

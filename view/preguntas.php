@@ -19,10 +19,10 @@
 
 {% for pregunta in preguntas %}
 	
-		pregunta.TEXTO<BR>
+		{{pregunta.TEXTO}}<BR>
 		
-		<a href="/borrar?id={{pregunta.ID}}"><img width="32px" src="http://findicons.com/files/icons/2226/matte_basic/32/trash_can1.png"></a>
-		<a href="/editar?id={{pregunta.ID}}"><img width="32px" src="http://findicons.com/files/icons/2226/matte_basic/32/document_edit.png"></a><br>
+		<a href="/borrar?ID={{pregunta.ID}}"><img width="32px" src="http://findicons.com/files/icons/2226/matte_basic/32/trash_can1.png"></a>
+		<a href="/editar?ID={{pregunta.ID}}"><img width="32px" src="http://findicons.com/files/icons/2226/matte_basic/32/document_edit.png"></a><br>
 		----------------<br>
 {% endfor %}
 	
