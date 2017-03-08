@@ -120,6 +120,15 @@ $app->group('/preguntas', function() use ($app){
 		echo json_encode($datos);
 	});
 	
+	    $app->get('/', function() use ($app){
+		global $twig;
+		
+		$r=AccesoDatos::listar($app->db, "PREGUNTAS", "TEXTO");
+		$valores=array('preguntas'=>$r);
+		
+		echo $twig->render('preguntas.php',$valores);  
+	}); 
+	
 	
 	
 	$app->post('/guardar', function() use ($app){
