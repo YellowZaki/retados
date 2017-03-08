@@ -106,23 +106,84 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	});
 });
 
-$app->group('/preguntas', function () use ($app) {
+$app->group('/preguntas', function() use ($app){
 	
-	$app->get('/borrar', function() use ($app){
+	$app->group('/buscar', function () use ($app) {
+		
+		$app->get('/porTexto', function() use ($app){
+				global $twig;
+				
+				$valores=array(
+					"id_alumno"=>$app->request()->get('id')
+				);
+				
+				$pdo=$app->db;
+				$q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
+				$q->execute($valores);
+				$r=$q->fetchAll(PDO::FETCH_ASSOC);
+			
+				
+				$valores=array('comentarios'=>$r);
+				echo $twig->render('partes.php',$valores);  
+				 
+			});
+			
+		});
+		
+	
+  $app->get('/borrar', function() use ($app){
 		global $twig;
-		AccesoDatos::borrar($app->db,"PREGUNTAS", $app->request()->get('idPregunta'));
+		AccesoDatos::borrar($app->db, "PREGUNTAS", $app->request()->get('idPregunta'));
 		$app->redirect('/preguntas');
-	});
+	}); 	
 	
 	$app->get('/cargar', function() use ($app){
 		global $twig;
-		$datos=Pregunta::cargarPregunta($app->request()->get('ID'));
+		$datos=Pregunta::cargar($app->request()->get('ID'));
 		echo json_encode($datos);
 	});
-
-			
+	
+	    $app->get('/', function() use ($app){
+		global $twig;
+		
+		$r=AccesoDatos::listar($app->db, "PREGUNTAS", "TEXTO");
+		$valores=array('preguntas'=>$r);
+		
+		echo $twig->render('preguntas.php',$valores);  
+	}); 
+	
+	
+	
+	$app->post('/guardar', function() use ($app){
+		global $twig;
+		$valores=Utilidades::getDatosPreguntas($app);
+		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
+		$app->redirect('/preguntas');
+		$valores['error']="Pregunta guardada correctamente";
+		$valores['exito']="Error al guardar la pregunta";
+/*
+ * No sé que página renderizar aquí
+ * echo $twig->render('pagina.php',$valores);
+ */
+	});
+	
 });
 
+/*
+ * Este bloque irá fuera tan pronto tengamos el primer formulario operativo
+ */
+ 
+$app->group('/prueba', function () use ($app) {
+	$app->get('/', function() use ($app){
+		global $twig;
+		echo $twig->render('prueba.php');
+	});
+	$app->post('/guardar', function() use ($app){
+		global $twig;
+		$valores=Utilidades::getDatosFormulario($app);
+		echo json_encode($valores);
+	});
+});
 
 $app->get('/about', function() use ($app){
 	global $twig;
