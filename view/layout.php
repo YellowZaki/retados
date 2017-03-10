@@ -1,260 +1,277 @@
 <html lang="">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+			{% block cabecera %}
+			{% endblock %}
+		<title>Reta2</title>
+		<meta name="generator" content="Bootply" />
+	    <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+<!-- Wrap all page content here -->
+<div id="wrap">
+  
+<header class="masthead">
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1><a href="#" title="Bootstrap Template">Reta2</a>
+          <p class="lead">I.E.S Al-Ándalus</p></h1>
+          
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
+      </div>
+      <div class="col-sm-6">
+        <div class="pull-right  hidden-xs">    
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><h3><i class="glyphicon glyphicon-cog"></i></h3></a>
+          <ul class="dropdown-menu">
+              <li><a href="#"><i class="glyphicon glyphicon-chevron-right"></i> Link</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-user"></i> Link</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Link</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+</header>
+  
+  
+<!-- Fixed navbar -->
+<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav nav-justified">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#section2">Reta2</a></li>
+          <li><a href="#section3">Novedades</a></li>
+          <li class="active"><a href="#section1"><strong>Sección</strong></a></li>
+          <li><a href="#section4">¿Quiénes somos?</a></li>
+          <li><a href="#section5">Contacto</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Más <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container -->
+</div><!--/.navbar -->
+  
+<!-- Begin page content -->
+<div class="divider" id="section1"></div>
+  
+<div class="container">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="page-header text-center">
+		           {% block cuerpo %} {% endblock %}
+    </div>
     
-    <link href="/css/font-awesome.css" rel="stylesheet" type="text/css">	
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/bootstrap.css" media="print">
+    <p class="lead text-center">
+      Twitter Bootstrap is a front-end toolkit to rapidly build web applications.
+    </p>
+    <p class="text-center">
+      Bootstrap is a framework that uses some of the latest browser techniques to provide you with stylish typography, navigation, buttons, tables, etc. One of the primary changes in Bootstrap 3 is an emphasis on Mobile-First responsive design. The goal is to elevate the mobile experience to a first-class citizen of the design process, because several billion mobile users is quite a large market to tap into. So, sites built with the current Bootstrap version target mobile devices and scale for larger screens depending on screen size.
+    </p>
+  </div>
+</div>
     
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/responsive.css">
-	<link rel="stylesheet" href="/css/datatable.css">
-	<link rel="stylesheet" href="/css/datatable2.css"></style>
-	<link href="/css/jqueryui.css" type="text/css" rel="stylesheet"/>
-    <link href="/css/datepicker.css" rel="stylesheet">
-    
-	<script src="/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/loader.js"></script>
-	
-    {% block cabecera %}
-			
-			
-		    <!--
-			<link href="/css/bootstrap-combined.min.css" rel="stylesheet">
-			<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-			<link href="/css/jumbotron-narrow.css" rel="stylesheet">
-			
+<div class="divider" id="section2"></div>
+  
+<section class="bg-1">
+  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Try and Tweak Different Layouts</h2></div>
+</section>
+  
+<div class="divider"></div>
    
-   		-->
-			
-	{% endblock %}
-		
-    <title>Control de Partes</title>
+<div class="container" id="section3">
+  	<div class="col-sm-8 col-sm-offset-2 text-center">
+      <h1>Mobile-first + Responsive</h1>
+      
+      <p>
+      Instead of creating a unique version of the webpage for each desktop, mobile &amp; tablet, you can now create one design that works on all devices, browsers &amp; resolutions. Your designs will be future ready when a new table or phone size comes in the market, your designs will adapt itself and fit to the new screen size.
+      </p>
+      
+      <hr>
+      
+      <img src="/assets/example/bg_smartphones.jpg" class="img-responsive">
+      
+      <hr>
+  	</div><!--/col-->
+</div><!--/container-->
 
-    <!-- ===========================
-    FONTS & ICONS
-    =========================== -->
-    <link href="/css/datatable3.css" rel='stylesheet' type='text/css'>
-    <link href="/css/datatable4.css" rel="stylesheet">
-    <script type="text/javascript" src="/js/jsapi.js"></script>
-    <link href="/css/datatable5.css" rel="stylesheet" type="text/css">
-	<link href="/css/menulateral.css" rel="stylesheet" type="text/css">
-
-    <!--[if IE]>
-        <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-    <div class="container" style="width:97%">
-        <!-- ===========================
-        HEADER
-        ============================ -->
-        <div id="header" class="row hidden-print" >
-            <div class="col-sm-2">
-                <a href="/"><img class="propic" src="/img/logo.png" alt=""></a>
-            </div>
-            <!-- photo end-->
-
-            <div class="col-sm-10">
-                <div class="cv-title">
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <h1>Control de Partes</h1>
-                        </div>
-                        <div class="col-sm-5 text-right dl-share" >
-                            
-                        </div>
-                    </div>
-                    <h2 style="margin-top: 0px; padding-left: 5px;">IES Al-Ándalus</h2>
-                </div><!-- Title end-->
-
-                <!-- ===========================
-                SOCIAL & CONTACT
-                ============================ -->
-                
-                <!--
-				    <li id="notificaciones"><a href="/notificaciones">Notificaciones</a></li>
-				    
-                -->
-                <div class="row">
-                    <div class="col-sm-6">
-						{% if login.isLogged() %}
-							<ul class="list-unstyled"> {{ login.getUsuario().getNombre() }} [{{ login.getUsuario().getRol() }}]</ul>
-                        {% endif %}
-                    </div><!-- social 1st col end-->
-                    
-                    <div class="col-sm-2">
-						<ul class="list-unstyled">
-							{% if login.isLogged() %}
-								<li><a href="/logout"><span class="social fa fa-sign-out"></span>Log out</a></li>
-							{% else %}
-								<li><a href="/login"><span class="social fa fa-cog"></span>Log in</a></li>
-							{% endif %}
-						</ul>
-					</div><!-- social 2nd col end-->
-					
-					<div class="col-sm-2">
-                        <ul class="list-unstyled">
-                            <li><a href="/about"><span class="social fa fa-info"></span>Acerca de</a></li>
-                        </ul>
-                    </div><!-- social 2nd col end-->
-                    
-                    <div class="col-sm-2">
-                        <ul class="list-unstyled">
-							<li><a href="/"><span class="social fa fa-home"></span>Inicio</a></li>
-                        </ul>
-                    </div><!-- social 2nd col end-->
-                    
-                    
-                    
-                    <!-- social 3rd col end-->
-                </div><!-- header social end-->
-            </div><!-- header right end-->
-        </div><!-- header end-->
-
-        <hr class="firsthr hidden-print">
-
-        <!-- ===========================
-        BODY LEFT PART
-        ============================ -->
-        <div class="col-md-9 mainleft">
-            <div id="statement" class="row mobmid" style="margin left:40px">
-                
-                <div class="col-sm-12">
-                    <!--<h3>Inicio </h3>
-                    <p>Bienvenidos a la página principal de Control de Partes</p>-->
-                    {% block cuerpo %} {% endblock %}
-                    <script>
-						$(document).ready(function(){
-							$('#myTable').dataTable();
-						});
-					</script>
-                </div><!--info end-->
-            </div><!--personal statement end-->
-
-        </div><!--left end-->
-        
-        <!-- ===========================
-        SIDEBAR
-        =========================== -->
-        <div class="col-md-3 mainright hidden-print">
-            <div class="row">
-                
-                <div class="col-sm-13 col-md-10 ">
-                    <h3 class="mobmid" style="margin-top: 5px;">MENÚ</h3>
-				</div>
-				<div class="col-sm-1 col-md-2 mobmid">
-                    <span class="secicon fa fa-briefcase"></span>
-                </div><!--icon end-->
-                
-			</div>
-			<div class="row">
-				<div class="col-sm-13 col-md-12 ">
-					<ul id="accordion" class="accordion">
-						  {% if acl.isAllowed(login.getUsuario().getRol(), '/alumnos','mostrar') %}
-							  <li>
-								<div class="link">Alumnos<i class="fa fa-chevron-down"></i></div>
-								<ul class="submenu">
-									<li><a href="/alumnos/crear">Crear</a></li>
-									<li><a href="/alumnos">Listar</a></li>
-									{% if acl.isAllowed(login.getUsuario().getRol(), '/alumnos/importar','mostrar') %}<li><a href="/alumnos/importar">Importar</a></li>{% endif %}
-								</ul>
-							  </li>
-						  {% endif %}
-						  <li>
-							<div class="link">Anotaciones<i class="fa fa-chevron-down"></i></div>
-							<ul class="submenu">
-							  <li><a href="/alumnos/anotaciones/crear">Crear</a></li>
-								</ul>
-								</li>
-						  
-						  <li>
-							<div class="link">Notificaciones<i class="fa fa-chevron-down"></i></div>
-							<ul class="submenu">
-							  <li><a href="/notificaciones">Listar</a></li>
-							</ul>
-						  </li>
-						  <li>
-							<div class="link">Partes<i class="fa fa-chevron-down"></i></div>
-							<ul class="submenu">
-							  <li><a href="/partes/crear">Crear</a></li>
-												<li><a href="/partes">Listar</a></li>
-							</ul>
-						  </li>
-						  <li>
-							<div class="link">Usuarios<i class="fa fa-chevron-down"></i></div>
-							<ul class="submenu">
-								<li><a href="/usuarios/crear">Crear</a></li>
-								<li><a href="/usuarios">Listar</a></li>
-							</ul>
-						  </li>
-						  <li>
-							<div class="link"><a href="/logout">Salir</a></div>				
-				          </li>			        			        						
-					</ul>
-                </div> <!-- jasv -->
-                
-            </div><!--info end-->
-                
+<div class="divider"></div>
+  
+<section class="bg-3" id="section4">
+  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Leverage Snippets &amp; Examples</h2></div>
+</section>
+  
+<div class="continer bg-4">
+	<div class="row">
+	   <div class="col-sm-4 col-xs-6">
+      
+        <div class="panel panel-default">
+          <div><img src="//placehold.it/620X250/565656/eee" class="img-responsive"></div>
+          <div class="panel-body">
+            <p class="lead">Hacker News</p>
+            <p>120k Followers, 900 Posts</p>
             
-		</div><!--right end-->
+            <p>
+              <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
+            </p>
+          </div>
+        </div><!--/panel-->
+      </div><!--/col-->
+      
+      <div class="col-sm-4 col-xs-6">
+      
+      	<div class="panel panel-default">
+          <div class="panel-thumbnail"><img src="//placehold.it/620X250/ffcc33/444" class="img-responsive"></div>
+          <div class="panel-body">
+            <p class="lead">Bootstrap Templates</p>
+            <p>902 Followers, 88 Posts</p>
+            
+            <p>
+              <img src="https://lh5.googleusercontent.com/-AQznZjgfM3E/AAAAAAAAAAI/AAAAAAAAABA/WEPOnkQS_20/s28-c-k-no/photo.jpg" width="28px" height="28px">
+            </p>
+          </div>
+        </div><!--/panel--> 
+      </div><!--/col-->
+      
+      <div class="col-sm-4 col-xs-6">
+      
+      	<div class="panel panel-default">
+          <div class="panel-thumbnail"><img src="//placehold.it/620X250/f16251/444" class="img-responsive"></div>
+          <div class="panel-body">
+            <p class="lead">Social Media</p>
+            <p>19k Followers, 789 Posts</p>
+            
+            <p>
+              <img src="https://lh4.googleusercontent.com/-eSs1F2O7N1A/AAAAAAAAAAI/AAAAAAAAAAA/caHwQFv2RqI/s28-c-k-no/photo.jpg" width="28px" height="28px">
+              <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
+            </p>
+          </div>
+        </div><!--/panel--> 
 
+      </div><!--/col--> 
+	</div><!--/row-->
+</div><!--/container-->
+
+<div class="divider" id="section5"></div>
+
+<div class="row">
+
+  <h1 class="text-center">Where In The World?</h1>
+
+  <div id="map-canvas"></div>
+  
+  <hr>
+  
+  <div class="col-sm-8">
+      
+      <div class="row form-group">
+        <div class="col-xs-3">
+          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required="">
+        </div>
+        <div class="col-xs-3">
+          <input type="text" class="form-control" id="middleName" name="firstName" placeholder="Middle Name" required="">
+        </div>
+        <div class="col-xs-4">
+          <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required="">
+        </div>
+      </div>
+      <div class="row form-group">
+          <div class="col-xs-5">
+          <input type="email" class="form-control" name="email" placeholder="Email" required="">
+          </div>
+          <div class="col-xs-5">
+          <input type="email" class="form-control" name="phone" placeholder="Phone" required="">
+          </div>
+      </div>
+      <div class="row form-group">
+          <div class="col-xs-10">
+          <input type="homepage" class="form-control" placeholder="Website URL" required="">
+          </div>
+      </div>
+      <div class="row form-group">
+          <div class="col-xs-10">
+            <button class="btn btn-default pull-right">Contact Us</button>
+          </div>
+      </div>
     
+  </div>
+  <div class="col-sm-3 pull-right">
 
-    <!--necessary scripts and plugins-->
-
-    <script src="/js/bootstrap.min.js"></script>
+      <address>
+        <strong>Iatek, LLC.</strong><br>
+        795 Folsom Ave, Suite 600<br>
+        Newport, RI 94107<br>
+        P: (123) 456-7890
+      </address>
     
-    <script src="/js/jquery.nicescroll.min.js"></script>
-    <script src="/js/evenfly.js"></script>
-    
-	<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
-	
-	<script type="text/javascript" src="/js/1.10.2jquery-ui.min.js"></script>
-	<!-- [https://goo.gl/KXLLgo] DatePicker usado -->
-    <script src="/js/bootstrap-datepicker.js"></script>
-	<script src="/js/locales/bootstrap-datepicker.es.min.js"></script>
-	
-	<!-- TODO llevar a la vista concreta en la que se vaya a usar -->
-	
-	<script>
-		$(document).ready(function(){
-			$('#myTable').dataTable();
-		});
-	</script>
-	<script>
-		$(function() {
-			var Accordion = function(el, multiple) {
-				this.el = el || {};
-				this.multiple = multiple || false;
+      <address>
+        <strong>Email Us</strong><br>
+        <a href="mailto:#">first.last@example.com</a>
+      </address>          
+  </div>
+  
+</div><!--/row-->
 
-				// Variables privadas
-				var links = this.el.find('.link');
-				// Evento
-				links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-			}
+<div class="container">
+  	<div class="col-sm-8 col-sm-offset-2 text-center">
+      <h2>Beautiful Bootstrap Templates</h2>
+      
+      <hr>
+      <h4>
+        We love templates. We love Bootstrap.
+      </h4>
+      <p>Get more free templates like this at the <a href="http://bootply.com">Bootstrap Playground</a>, Bootply.</p>
+      <hr>
+      <ul class="list-inline center-block">
+        <li><a href="http://facebook.com/bootply"><img src="/assets/example/soc_fb.png"></a></li>
+        <li><a href="http://twitter.com/bootply"><img src="/assets/example/soc_tw.png"></a></li>
+        <li><a href="http://google.com/+bootply"><img src="/assets/example/soc_gplus.png"></a></li>
+        <li><a href="http://pinterest.com/in1"><img src="/assets/example/soc_pin.png"></a></li>
+      </ul>
+      
+  	</div><!--/col-->
+</div><!--/container-->
+  
+</div><!--/wrap-->
 
-			Accordion.prototype.dropdown = function(e) {
-				var $el = e.data.el;
-					$this = $(this),
-					$next = $this.next();
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">This Bootstrap Example courtesy <a href="http://www.bootply.com">Bootply.com</a></p>
+  </div>
+</div>
 
-				$next.slideToggle();
-				$this.parent().toggleClass('open');
+<ul class="nav pull-right scroll-top">
+  <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+</ul>
 
-				if (!e.data.multiple) {
-					$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-				};
-			}	
-
-			var accordion = new Accordion($('#accordion'), false);
-		});
-</script>
-</body>
-
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
+		<script src="js/scripts.js"></script>
+	</body>
 </html>

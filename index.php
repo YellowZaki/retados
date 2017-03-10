@@ -107,6 +107,10 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 });
 
 $app->group('/preguntas', function () use ($app) {
+	$app->get('/', function() use ($app){
+		global $twig;
+		echo $twig->render('prueba.php');
+	});
 	
 	$app->get('/borrar', function() use ($app){
 		global $twig;
@@ -124,15 +128,12 @@ $app->group('/preguntas', function () use ($app) {
 	
 	$app->post('/guardar', function() use ($app){
 		global $twig;
-		$valores=Utilidades::getDatosPreguntas($app);
+		$valores=Utilidades::getDatosFormulario($app);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
-		$app->redirect('/preguntas');
 		$valores['error']="Pregunta guardada correctamente";
-		$valores['exito']="Error al guardar la pregunta";
-/*
- * No sé que página renderizar aquí
- * echo $twig->render('pagina.php',$valores);
- */
+		$valores['message']="Error al guardar la pregunta";
+		echo $twig->render('preguntas.php',$valores);
+
 	});
 	
 });
