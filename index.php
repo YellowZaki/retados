@@ -107,6 +107,16 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 });
 
 $app->group('/preguntas', function() use ($app){
+		   
+		    $app->get('/pdf', function() use ($app){
+		global $twig;
+			
+		$p=AccesoDatos::listar($app->db, "pregunta", "ID, TEXTO");
+		$r=AccesoDatos::listar($app->db, "respuesta", "ID, ID_PREGUNTA, TEXTO, CORRECTA");
+		$valores=array('respuestas'=>$r, 'preguntas'=>$p);
+		
+		
+	 });
 	
 	$app->group('/buscar', function () use ($app) {
 		
@@ -130,6 +140,8 @@ $app->group('/preguntas', function() use ($app){
 			
 		});
 		
+		
+		
 	
   $app->get('/borrar', function() use ($app){
 		global $twig;
@@ -146,7 +158,7 @@ $app->group('/preguntas', function() use ($app){
 	    $app->get('/', function() use ($app){
 		global $twig;
 		
-		$r=AccesoDatos::listar($app->db, "PREGUNTAS", "TEXTO");
+		$r=AccesoDatos::listar($app->db, "PREGUNTAS", "ID, TEXTO");
 		$valores=array('preguntas'=>$r);
 		
 		echo $twig->render('preguntas.php',$valores);  
@@ -159,6 +171,11 @@ $app->group('/preguntas', function() use ($app){
 		$valores=Utilidades::getDatosPreguntas($app);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
 		$app->redirect('/preguntas');
+		/*
+		$valores=Utilidades::getDatosrespuestas($app);
+		AccesoDatos::guardar($app->db,"respuestas",$valores);
+		$app->redirect('/respuestas');
+		*/
 		$valores['error']="Pregunta guardada correctamente";
 		$valores['exito']="Error al guardar la pregunta";
 /*
