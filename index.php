@@ -73,7 +73,9 @@ $twig = new Twig_Environment($loader, array(
 ));  
 
 $app->container->singleton('db', function () {
-    return new \PDO('sqlite:model/retados.db');
+	$db=new \PDO('sqlite:model/retados.db');
+	$db->query("pragma foreign_keys=ON;");
+	return $db;
 });
 $app->container->singleton('acl', function () {
 	$app = \Slim\Slim::getInstance();
