@@ -130,6 +130,8 @@ $app->group('/preguntas', function() use ($app){
 			
 		});
 		
+		
+		
 	
   $app->get('/borrar', function() use ($app){
 		global $twig;
@@ -159,6 +161,11 @@ $app->group('/preguntas', function() use ($app){
 		$valores=Utilidades::getDatosPreguntas($app);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
 		$app->redirect('/preguntas');
+		/*
+		$valores=Utilidades::getDatosrespuestas($app);
+		AccesoDatos::guardar($app->db,"respuestas",$valores);
+		$app->redirect('/respuestas');
+		*/
 		$valores['error']="Pregunta guardada correctamente";
 		$valores['exito']="Error al guardar la pregunta";
 /*
