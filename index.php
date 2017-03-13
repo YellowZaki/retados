@@ -105,6 +105,41 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 		echo $twig->render('auth_nok.php');
 	});
 });
+$app->group('/respuestas', function() use ($app){
+
+$app->group('/buscar', function () use ($app) {
+		
+		$app->get('/porTexto', function() use ($app){
+				global $twig;
+				
+				$valores=array(
+					"id_alumno"=>$app->request()->get('id')
+				);
+				
+				$pdo=$app->db;
+				$q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
+				$q->execute($valores);
+				$r=$q->fetchAll(PDO::FETCH_ASSOC);
+			
+				
+				$valores=array('comentarios'=>$r);
+				echo $twig->render('partes.php',$valores);  
+				 
+			});
+			
+		});
+		
+
+    $app->get('/', function() use ($app){
+		global $twig;
+		
+		$r=AccesoDatos::listar($app->db, "RESPUESTAS", "ID, ID_PREGUNTA, TEXTO, CORRECTA");
+		$valores=array('respuestas'=>$r);
+		
+		echo $twig->render('respuestas.php',$valores);  
+	}); 
+}); 
+
 
 $app->group('/preguntas', function() use ($app){
 	
@@ -199,6 +234,9 @@ $app->get('/about', function() use ($app){
 
 $app->get('/logout', function () use ($app) {
 		Login::forzarLogOut();
+});
+$app->get('/prueba', function () use ($app) {
+	AccesoDatos::listar($app->db,"RESPUESTAS","*");
 });
 
 $app->group('/login', function () use ($app) {
