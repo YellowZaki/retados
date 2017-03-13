@@ -73,7 +73,9 @@ $twig = new Twig_Environment($loader, array(
 ));  
 
 $app->container->singleton('db', function () {
-    return new \PDO('sqlite:model/retados.db');
+	$db=new \PDO('sqlite:model/retados.db');
+	$db->query("pragma foreign_keys=ON;");
+	return $db;
 });
 $app->container->singleton('acl', function () {
 	$app = \Slim\Slim::getInstance();
@@ -141,7 +143,21 @@ $app->group('/buscar', function () use ($app) {
 }); 
 
 
+
 $app->group('/preguntas', function() use ($app){
+<<<<<<< HEAD
+=======
+		
+		    $app->get('/pdf', function() use ($app){
+		global $twig;
+			
+		$p=AccesoDatos::listar($app->db, "pregunta", "ID, TEXTO");
+		$r=AccesoDatos::listar($app->db, "respuesta", "ID, ID_PREGUNTA, TEXTO, CORRECTA");
+		$valores=array('respuestas'=>$r, 'preguntas'=>$p);
+		
+		
+	 });
+>>>>>>> 0549680d8a2cbad0014eae251656ad7f2e7d342e
 	
 	$app->group('/buscar', function () use ($app) {
 		
@@ -149,17 +165,17 @@ $app->group('/preguntas', function() use ($app){
 				global $twig;
 				
 				$valores=array(
-					"id_alumno"=>$app->request()->get('id')
+					"valores"=>$app->request()->get('valor')
 				);
 				
-				$pdo=$app->db;
-				$q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
-				$q->execute($valores);
-				$r=$q->fetchAll(PDO::FETCH_ASSOC);
-			
+			   /* $pdo=$app->db;
+				* $q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
+		    	* $q->execute($valores);
+				* $r=$q->fetchAll(PDO::FETCH_ASSOC);
+			*/
 				
 				$valores=array('comentarios'=>$r);
-				echo $twig->render('partes.php',$valores);  
+				echo $twig->render('partes.php',$valores);
 				 
 			});
 			
@@ -167,6 +183,7 @@ $app->group('/preguntas', function() use ($app){
 		
 		
 		
+
 	
   $app->get('/borrar', function() use ($app){
 		global $twig;
@@ -193,20 +210,12 @@ $app->group('/preguntas', function() use ($app){
 	
 	$app->post('/guardar', function() use ($app){
 		global $twig;
-		$valores=Utilidades::getDatosPreguntas($app);
+		$valores=Utilidades::getDatosFormulario($app);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
-		$app->redirect('/preguntas');
-		/*
-		$valores=Utilidades::getDatosrespuestas($app);
-		AccesoDatos::guardar($app->db,"respuestas",$valores);
-		$app->redirect('/respuestas');
-		*/
 		$valores['error']="Pregunta guardada correctamente";
-		$valores['exito']="Error al guardar la pregunta";
-/*
- * No sé que página renderizar aquí
- * echo $twig->render('pagina.php',$valores);
- */
+		$valores['message']="Error al guardar la pregunta";
+		echo $twig->render('preguntas.php',$valores);
+
 	});
 	
 });
