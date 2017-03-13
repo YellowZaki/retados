@@ -106,23 +106,65 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	});
 });
 
-$app->group('/preguntas', function () use ($app) {
-	$app->get('/', function() use ($app){
+
+$app->group('/preguntas', function() use ($app){
+		
+		    $app->get('/pdf', function() use ($app){
 		global $twig;
-		echo $twig->render('prueba.php');
-	});
+			
+		$p=AccesoDatos::listar($app->db, "pregunta", "ID, TEXTO");
+		$r=AccesoDatos::listar($app->db, "respuesta", "ID, ID_PREGUNTA, TEXTO, CORRECTA");
+		$valores=array('respuestas'=>$r, 'preguntas'=>$p);
+		
+		
+	 });
 	
-	$app->get('/borrar', function() use ($app){
+	$app->group('/buscar', function () use ($app) {
+		
+		$app->get('/porTexto', function() use ($app){
+				global $twig;
+				
+				$valores=array(
+					"id_alumno"=>$app->request()->get('id')
+				);
+				
+				$pdo=$app->db;
+				$q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
+				$q->execute($valores);
+				$r=$q->fetchAll(PDO::FETCH_ASSOC);
+			
+				
+				$valores=array('comentarios'=>$r);
+				echo $twig->render('partes.php',$valores);  
+				 
+			});
+			
+		});
+		
+		
+		
+
+	
+  $app->get('/borrar', function() use ($app){
 		global $twig;
-		AccesoDatos::borrar($app->db,"PREGUNTAS", $app->request()->get('ID'));
+		AccesoDatos::borrar($app->db, "PREGUNTAS", $app->request()->get('idPregunta'));
 		$app->redirect('/preguntas');
-	});
+	}); 	
 	
 	$app->get('/cargar', function() use ($app){
 		global $twig;
 		$datos=Pregunta::cargar($app->request()->get('ID'));
 		echo json_encode($datos);
 	});
+	
+	    $app->get('/', function() use ($app){
+		global $twig;
+		
+		$r=AccesoDatos::listar($app->db, "PREGUNTAS", "ID, TEXTO");
+		$valores=array('preguntas'=>$r);
+		
+		echo $twig->render('preguntas.php',$valores);  
+	}); 
 	
 	
 	
