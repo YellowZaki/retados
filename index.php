@@ -110,10 +110,8 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 
 
 $app->group('/preguntas', function() use ($app){
-<<<<<<< HEAD
-=======
 		
-		    $app->get('/pdf', function() use ($app){
+    $app->get('/pdf', function() use ($app){
 		global $twig;
 			
 		$p=AccesoDatos::listar($app->db, "pregunta", "ID, TEXTO");
@@ -122,7 +120,6 @@ $app->group('/preguntas', function() use ($app){
 		
 		
 	 });
->>>>>>> 0549680d8a2cbad0014eae251656ad7f2e7d342e
 	
 	$app->group('/buscar', function () use ($app) {
 		
