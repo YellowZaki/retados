@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 			{% block cabecera %}
 			{% endblock %}
-		<title>Reta2</title>
+		<title>{RetA2}</title>
 		<meta name="generator" content="Bootply" />
 	    <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,7 +22,7 @@
     <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1><a href="#" title="Bootstrap Template">Reta2</a>
+        <h1><a href="#" title="Bootstrap Template">{RetA2}</a>
           <p class="lead">I.E.S Al-Ándalus</p></h1>
           
 

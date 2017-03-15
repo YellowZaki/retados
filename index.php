@@ -145,9 +145,8 @@ $app->group('/buscar', function () use ($app) {
 
 
 $app->group('/preguntas', function() use ($app){
-
 		
-		    $app->get('/pdf', function() use ($app){
+    $app->get('/pdf', function() use ($app){
 		global $twig;
 			
 		$p=AccesoDatos::listar($app->db, "pregunta", "ID, TEXTO");
