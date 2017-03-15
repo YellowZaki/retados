@@ -135,18 +135,17 @@ $app->group('/buscar', function () use ($app) {
     $app->get('/', function() use ($app){
 		global $twig;
 		
-		$r=AccesoDatos::listar($app->db, "RESPUESTAS", "ID, ID_PREGUNTA, TEXTO, CORRECTA");
+		$r=AccesoDatos::listar($app->db, "RESPUESTAS", "*");
 		$valores=array('respuestas'=>$r);
 		
-		echo $twig->render('respuestas.php',$valores);  
+		echo $twig->render('preguntas.php',$valores);  
 	}); 
 }); 
 
 
 
 $app->group('/preguntas', function() use ($app){
-<<<<<<< HEAD
-=======
+
 		
 		    $app->get('/pdf', function() use ($app){
 		global $twig;
@@ -157,7 +156,7 @@ $app->group('/preguntas', function() use ($app){
 		
 		
 	 });
->>>>>>> 0549680d8a2cbad0014eae251656ad7f2e7d342e
+
 	
 	$app->group('/buscar', function () use ($app) {
 		
@@ -243,9 +242,6 @@ $app->get('/about', function() use ($app){
 
 $app->get('/logout', function () use ($app) {
 		Login::forzarLogOut();
-});
-$app->get('/prueba', function () use ($app) {
-	AccesoDatos::listar($app->db,"RESPUESTAS","*");
 });
 
 $app->group('/login', function () use ($app) {
