@@ -110,6 +110,7 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 
 
 $app->group('/preguntas', function() use ($app){
+
 		
 		    $app->get('/pdf', function() use ($app){
 		global $twig;
@@ -120,6 +121,7 @@ $app->group('/preguntas', function() use ($app){
 		
 		
 	 });
+
 	
 	$app->group('/buscar', function () use ($app) {
 		
@@ -127,17 +129,17 @@ $app->group('/preguntas', function() use ($app){
 				global $twig;
 				
 				$valores=array(
-					"id_alumno"=>$app->request()->get('id')
+					"valores"=>$app->request()->get('valor')
 				);
 				
-				$pdo=$app->db;
-				$q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
-				$q->execute($valores);
-				$r=$q->fetchAll(PDO::FETCH_ASSOC);
-			
+			   /* $pdo=$app->db;
+				* $q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
+		    	* $q->execute($valores);
+				* $r=$q->fetchAll(PDO::FETCH_ASSOC);
+			*/
 				
 				$valores=array('comentarios'=>$r);
-				echo $twig->render('partes.php',$valores);  
+				echo $twig->render('partes.php',$valores);
 				 
 			});
 			
@@ -153,11 +155,16 @@ $app->group('/preguntas', function() use ($app){
 		$app->redirect('/preguntas');
 	}); 	
 	
-	$app->get('/cargar', function() use ($app){
+	$app->get('/editar', function() use ($app){
 		global $twig;
+
+
 		$datos=Pregunta::cargar($app->request()->get('ID'));
-		echo json_encode($datos);
-	});
+		
+		$valores=array('comentario'=>$datos);
+		echo $twig->render('pregunta.php',$valores);  
+		 	
+	}); 	
 	
 	    $app->get('/', function() use ($app){
 		global $twig;
