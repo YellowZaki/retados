@@ -107,6 +107,10 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 		echo $twig->render('auth_nok.php');
 	});
 });
+/*
+$app->post('/guardar', function() use ($app){
+*/	
+	
 $app->group('/respuestas', function() use ($app){
 
 $app->group('/buscar', function () use ($app) {

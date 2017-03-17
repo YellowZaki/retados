@@ -13,7 +13,7 @@ class Respuesta {
 	}
 	public static function listar($id){
 		$app = \Slim\Slim::getInstance();
-	$r=AccesoDatos::listar($app->db, "RESPUESTAS", "*");
-		$valores=array('respuestas'=>$r);
+	    return AccesoDatos::listar($app->db, "RESPUESTAS", "*");
+		
 }
 ?>
