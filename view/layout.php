@@ -4,13 +4,9 @@
 		<meta charset="utf-8">
 			{% block cabecera %}
 			{% endblock %}
-<<<<<<< HEAD
 		<title>Reta2</title>
 		<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
 		<script>tinymce.init({ selector:'textarea' });</script>
-=======
-		<title>{RetA2}</title>
->>>>>>> eea81e5ab62e76a7dd6a1fac55eab3136409d4eb
 		<meta name="generator" content="Bootply" />
 	    <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -29,11 +25,7 @@
     <div class="container">
     <div class="row">
       <div class="col-sm-6">
-<<<<<<< HEAD
         <h1><a href="/" title="Bootstrap Template">Reta2</a>
-=======
-        <h1><a href="#" title="Bootstrap Template">{RetA2}</a>
->>>>>>> eea81e5ab62e76a7dd6a1fac55eab3136409d4eb
           <p class="lead">I.E.S Al-Ándalus</p></h1>
           
 
