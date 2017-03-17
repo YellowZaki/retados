@@ -21,8 +21,8 @@
 	
 		{{pregunta.TEXTO}}<BR>
 		
-		<a href="/preguntas/borrar?ID={{pregunta.ID}}"><img width="32px" src="http://findicons.com/files/icons/2226/matte_basic/32/trash_can1.png"></a>
-		<a href="/preguntas/editar?ID={{pregunta.ID}}"><img width="32px" src="http://findicons.com/files/icons/2226/matte_basic/32/document_edit.png"></a><br>
+		<a href="/preguntas/borrar?ID={{pregunta.ID}}"><img width="32px" src="/img/borrar.png"></a>
+		<a href="/preguntas/editar?ID={{pregunta.ID}}"><img width="32px" src="/img/editar.png"></a><br>
 		----------------<br>
 {% endfor %}
 	
