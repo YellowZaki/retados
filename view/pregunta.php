@@ -26,7 +26,7 @@
 		<input type="hidden" name="id" value="{{comentario.ID}}"/>
 		
 		<div class="form-group col-md-12">
-			<label for="nombre">Pregunta:</label>
+			<label class="derecha" for="nombre">Pregunta:</label>
 			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="descripcion" >{{comentario.COMENTARIO}}</textarea>
 		</div>
 		
