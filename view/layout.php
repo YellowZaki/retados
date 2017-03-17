@@ -6,7 +6,6 @@
 			{% endblock %}
 		<title>Reta2</title>
 		<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
-		<script>tinymce.init({ selector:'textarea' });</script>
 		<meta name="generator" content="Bootply" />
 	    <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -86,7 +85,6 @@
 <div class="container">
   <div class="col-sm-10 col-sm-offset-1">
     <div class="page-header text-center">
-	  <textarea></textarea>
 	  <br>
 		           {% block cuerpo %} {% endblock %}
     </div>

@@ -67,5 +67,6 @@
 			</table>
 		</div>
 </form>
+	<script>tinymce.init({ selector:'textarea' });</script>
 
 {% endblock cuerpo %}
