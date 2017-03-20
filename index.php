@@ -140,7 +140,9 @@ $app->group('/preguntas', function() use ($app){
 	$app->get('/editar', function() use ($app){
 		global $twig;
 		$datos=Pregunta::cargar($app->request()->get('ID'));
-		
+		/*echo json_encode($datos);
+		return ;
+		*/
 		$valores=array('comentario'=>$datos);
 		echo $twig->render('pregunta.php',$valores);  
 		 	
@@ -182,6 +184,13 @@ $app->group('/prueba', function () use ($app) {
 		echo json_encode($valores);
 	});
 });
+
+		$app->get('/guardarPregunta', function() use ($app){
+		global $twig;
+		$datos=Pregunta::guardarPregunta($app->request()->get('ID'));
+		echo json_encode($datos);
+	});
+___________
 $app->get('/about', function() use ($app){
 	global $twig;
 	echo $twig->render('about.php');  
