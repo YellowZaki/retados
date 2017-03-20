@@ -194,7 +194,7 @@ $app->group('/prueba', function () use ($app) {
 		$datos=Pregunta::guardarPregunta($app->request()->get('ID'));
 		echo json_encode($datos);
 	});
-___________
+
 $app->get('/about', function() use ($app){
 	global $twig;
 	echo $twig->render('about.php');  
