@@ -95,6 +95,7 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	});
 });
 $app->group('/preguntas', function() use ($app){
+
 		
 		    $app->get('/pdf', function() use ($app){
 		global $twig;
@@ -105,6 +106,7 @@ $app->group('/preguntas', function() use ($app){
 		
 		
 	 });
+
 	
 	$app->group('/buscar', function () use ($app) {
 		
@@ -139,6 +141,8 @@ $app->group('/preguntas', function() use ($app){
 	
 	$app->get('/editar', function() use ($app){
 		global $twig;
+
+
 		$datos=Pregunta::cargar($app->request()->get('ID'));
 		/*echo json_encode($datos);
 		return ;
@@ -219,4 +223,11 @@ $app->group('/login', function () use ($app) {
 });
 // Ponemos en marcha el router
 $app->run();
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 61cef671fde10c5cb7592ea9e1c3dc1558fe2eff
 ?>

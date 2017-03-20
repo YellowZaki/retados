@@ -8,6 +8,8 @@ body {
   font: normal 14px arial,sans-serif;
 }
 
+
+
 .row {
   margin-left:0px;
   margin-right:0px;
@@ -58,7 +60,7 @@ h1,h2,h3,h4 {
 
 header {
   background: #63A7FF;
-  height:550px;
+  height:150px;
   color:#000000;
 }
 
@@ -203,7 +205,7 @@ section {
 }
 
 .bg-3 {
-	background: url('http://www.bootply.com/assets/example/bg_6.jpg') no-repeat center center fixed; 
+	background: url('http://3.bp.blogspot.com/-znrIjjkELk0/TrvES4eJXuI/AAAAAAAAAEY/A0FrLtbXngQ/s1600/grupos+en+el+Museo+y+visita+a+Cazalla+de+la+Sierra+002.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;

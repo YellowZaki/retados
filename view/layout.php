@@ -4,15 +4,17 @@
 		<meta charset="utf-8">
 			{% block cabecera %}
 			{% endblock %}
-		<title>{RetA2}</title>
+		<title>Reta2</title>
+		<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
 		<meta name="generator" content="Bootply" />
 	    <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
+		<link href="/css/bootstrap.css" rel="stylesheet">
 	</head>
 	<body>
 <!-- Wrap all page content here -->
@@ -22,7 +24,7 @@
     <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1><a href="#" title="Bootstrap Template">{RetA2}</a>
+        <h1><a href="/" title="Bootstrap Template">{retA2}</a>
           <p class="lead">I.E.S Al-Ándalus</p></h1>
           
 
@@ -61,7 +63,7 @@
           <li><a href="#section3">Novedades</a></li>
           <li class="active"><a href="#section1"><strong>Sección</strong></a></li>
           <li><a href="#section4">¿Quiénes somos?</a></li>
-          <li><a href="#section5">Contacto</a></li>
+          <li><a href="#section5">¿Dónde estamos?</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Más <b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -83,106 +85,49 @@
 <div class="container">
   <div class="col-sm-10 col-sm-offset-1">
     <div class="page-header text-center">
+	  <br>
 		           {% block cuerpo %} {% endblock %}
     </div>
-    
-    <p class="lead text-center">
-      Twitter Bootstrap is a front-end toolkit to rapidly build web applications.
-    </p>
-    <p class="text-center">
-      Bootstrap is a framework that uses some of the latest browser techniques to provide you with stylish typography, navigation, buttons, tables, etc. One of the primary changes in Bootstrap 3 is an emphasis on Mobile-First responsive design. The goal is to elevate the mobile experience to a first-class citizen of the design process, because several billion mobile users is quite a large market to tap into. So, sites built with the current Bootstrap version target mobile devices and scale for larger screens depending on screen size.
-    </p>
   </div>
 </div>
     
 <div class="divider" id="section2"></div>
   
 <section class="bg-1">
-  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Try and Tweak Different Layouts</h2></div>
+  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Reta2</h2></div>
 </section>
   
 <div class="divider"></div>
    
 <div class="container" id="section3">
   	<div class="col-sm-8 col-sm-offset-2 text-center">
-      <h1>Mobile-first + Responsive</h1>
+      <h1>Novedades</h1>
       
       <p>
-      Instead of creating a unique version of the webpage for each desktop, mobile &amp; tablet, you can now create one design that works on all devices, browsers &amp; resolutions. Your designs will be future ready when a new table or phone size comes in the market, your designs will adapt itself and fit to the new screen size.
+      Texto de relleno.
       </p>
       
-      <hr>
       
-      <img src="/assets/example/bg_smartphones.jpg" class="img-responsive">
       
-      <hr>
+      
   	</div><!--/col-->
 </div><!--/container-->
 
 <div class="divider"></div>
   
 <section class="bg-3" id="section4">
-  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Leverage Snippets &amp; Examples</h2></div>
+  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.8)">¿Quienes somos?</h2></div>
 </section>
   
-<div class="continer bg-4">
-	<div class="row">
-	   <div class="col-sm-4 col-xs-6">
-      
-        <div class="panel panel-default">
-          <div><img src="//placehold.it/620X250/565656/eee" class="img-responsive"></div>
-          <div class="panel-body">
-            <p class="lead">Hacker News</p>
-            <p>120k Followers, 900 Posts</p>
-            
-            <p>
-              <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
-            </p>
-          </div>
-        </div><!--/panel-->
-      </div><!--/col-->
-      
-      <div class="col-sm-4 col-xs-6">
-      
-      	<div class="panel panel-default">
-          <div class="panel-thumbnail"><img src="//placehold.it/620X250/ffcc33/444" class="img-responsive"></div>
-          <div class="panel-body">
-            <p class="lead">Bootstrap Templates</p>
-            <p>902 Followers, 88 Posts</p>
-            
-            <p>
-              <img src="https://lh5.googleusercontent.com/-AQznZjgfM3E/AAAAAAAAAAI/AAAAAAAAABA/WEPOnkQS_20/s28-c-k-no/photo.jpg" width="28px" height="28px">
-            </p>
-          </div>
-        </div><!--/panel--> 
-      </div><!--/col-->
-      
-      <div class="col-sm-4 col-xs-6">
-      
-      	<div class="panel panel-default">
-          <div class="panel-thumbnail"><img src="//placehold.it/620X250/f16251/444" class="img-responsive"></div>
-          <div class="panel-body">
-            <p class="lead">Social Media</p>
-            <p>19k Followers, 789 Posts</p>
-            
-            <p>
-              <img src="https://lh4.googleusercontent.com/-eSs1F2O7N1A/AAAAAAAAAAI/AAAAAAAAAAA/caHwQFv2RqI/s28-c-k-no/photo.jpg" width="28px" height="28px">
-              <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
-            </p>
-          </div>
-        </div><!--/panel--> 
 
-      </div><!--/col--> 
-	</div><!--/row-->
 </div><!--/container-->
 
 <div class="divider" id="section5"></div>
 
 <div class="row">
 
-  <h1 class="text-center">Where In The World?</h1>
-
-  <div id="map-canvas"></div>
+  <h1 class="text-center">¿Dónde estamos?</h1>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3175.179820319474!2d-5.541996649681004!3d37.267162779756184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd129b513e110c79%3A0x96e0403e7bba6b71!2sInstituto+De+Educaci%C3%B3n+Secundaria+Al+Andalus!5e0!3m2!1ses!2ses!4v1489578748356" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
   
   <hr>
   
@@ -219,32 +164,17 @@
       </div>
     
   </div>
-  <div class="col-sm-3 pull-right">
-
-      <address>
-        <strong>Iatek, LLC.</strong><br>
-        795 Folsom Ave, Suite 600<br>
-        Newport, RI 94107<br>
-        P: (123) 456-7890
-      </address>
-    
-      <address>
-        <strong>Email Us</strong><br>
-        <a href="mailto:#">first.last@example.com</a>
-      </address>          
-  </div>
   
 </div><!--/row-->
 
 <div class="container">
   	<div class="col-sm-8 col-sm-offset-2 text-center">
-      <h2>Beautiful Bootstrap Templates</h2>
+      <h2>Reta2</h2>
       
       <hr>
       <h4>
-        We love templates. We love Bootstrap.
+        I.E.S Al-Ándalus
       </h4>
-      <p>Get more free templates like this at the <a href="http://bootply.com">Bootstrap Playground</a>, Bootply.</p>
       <hr>
       <ul class="list-inline center-block">
         <li><a href="http://facebook.com/bootply"><img src="/assets/example/soc_fb.png"></a></li>
@@ -260,7 +190,7 @@
 
 <div id="footer">
   <div class="container">
-    <p class="text-muted">This Bootstrap Example courtesy <a href="http://www.bootply.com">Bootply.com</a></p>
+    <p class="text-muted">Alberto Gómez</p>
   </div>
 </div>
 
@@ -270,8 +200,8 @@
 
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
-		<script src="js/scripts.js"></script>
+		<script src="/js/scripts.js"></script>
 	</body>
 </html>
