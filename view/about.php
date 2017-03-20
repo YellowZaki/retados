@@ -14,7 +14,7 @@
 
 <div class="jumbotron">
 	<h1>Acerca del proyecto</h1>
-	<p class="lead">Software para la gestión de incidencias de disciplina</p>
+	<p class="lead">Software para aprobar sin esfuerzo</p>
 </div>
 
   <h1 class="text-center">¿Dónde estamos?</h1>

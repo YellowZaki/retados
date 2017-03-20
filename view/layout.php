@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 			{% block cabecera %}
 			{% endblock %}
-		<title>Reta2</title>
+		<title>Ret{A2}</title>
 		<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
 		<meta name="generator" content="Bootply" />
 	    <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
@@ -24,7 +24,7 @@
     <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1><a href="/" title="Bootstrap Template">{retA2}</a>
+        <h1><a href="/" title="Bootstrap Template">Ret{A2}</a>
           <p class="lead">I.E.S Al-Ándalus</p></h1>
           
 
@@ -59,11 +59,11 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav nav-justified">
           <li><a href="/">Inicio</a></li>
-          <li><a href="http://semillerodeempresas.blogspot.com.es/search/label/%7BReta2%7D">Novedades</a></li>
+          <li><a target="_blank" href="http://semillerodeempresas.blogspot.com.es/search/label/%7BReta2%7D">Novedades</a></li>
           <li><a href="/preguntas">Preguntas</a></li>
           <li class="active"><a href="/about"><strong>Acerca de</strong></a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi perfil<b class="caret"></b></a>
+            <a class="dropdown-toggle" data-toggle="dropdown">Mi perfil<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="/usuario/config">Configurar</a></li>
               <li><a href="/usuario/preguntas">Mis preguntas</a></li>
@@ -134,24 +134,13 @@
   
 </div><!--/row-->
 
-<div class="container">
-  	<div class="col-sm-8 col-sm-offset-2 text-center">
-      <h2>Reta2</h2>
-      
-      <hr>
-      <h4>
-        I.E.S Al-Ándalus
-      </h4>
-      <hr>
-      
-  	</div><!--/col-->
 </div><!--/container-->
   
 </div><!--/wrap-->
 
 <div id="footer">
   <div class="container">
-    <p class="text-muted">Alberto Gómez</p>
+    <p class="text-muted"><strong>Ret{A2}</strong> - (c) 2017 I.E.S. Al-Ándalus </p>
   </div>
 </div>
 
