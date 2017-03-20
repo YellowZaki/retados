@@ -160,7 +160,9 @@ $app->group('/preguntas', function() use ($app){
 
 
 		$datos=Pregunta::cargar($app->request()->get('ID'));
-		
+		/*echo json_encode($datos);
+		return ;
+		*/
 		$valores=array('comentario'=>$datos);
 		echo $twig->render('pregunta.php',$valores);  
 		 	
