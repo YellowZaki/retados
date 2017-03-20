@@ -47,10 +47,13 @@ require_once	'controller/Listado.php';
 require_once	'controller/AccesoDatos.php';
 require_once	'controller/PermisosACL.php';
 require_once	'controller/Parte.php';
+
 session_cache_limiter(false);	
 session_start();
 header('Content-type: text/html; charset=utf-8');
+
 use Respect\Validation\Validator as v;
+
 Twig_Autoloader::register();  
 $app = new \Slim\Slim(
 		array(
@@ -63,21 +66,26 @@ $loader = new Twig_Loader_Filesystem('./view');
 $twig = new Twig_Environment($loader, array(  
 	//'cache' => 'cache',  
 ));  
+
 $app->container->singleton('db', function () {
 	$db=new \PDO('sqlite:model/retados.db');
 	$db->query("pragma foreign_keys=ON;");
 	return $db;
 });
+
 $app->container->singleton('acl', function () {
 	$app = \Slim\Slim::getInstance();
     return new PermisosACL($app->db);
 });
+
 $twig->addGlobal('login', new LoginClave()); // Para poder consultar si existe sesión de usuario abierta
 $twig->addGlobal('acl', $app->acl); // Para poder consultar si existe sesión de usuario abierta
+
 $app->get('/', function() use ($app){
     global $twig;
     echo $twig->render('inicio.php');  
 }); 
+
 $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	$app->get('/aceptar', function () use ($app){
 		global $twig;
@@ -94,10 +102,11 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 		echo $twig->render('auth_nok.php');
 	});
 });
+
 $app->group('/preguntas', function() use ($app){
 
 		
-		    $app->get('/pdf', function() use ($app){
+	$app->get('/pdf', function() use ($app){
 		global $twig;
 			
 		$p=AccesoDatos::listar($app->db, "pregunta", "ID, TEXTO");
@@ -107,7 +116,6 @@ $app->group('/preguntas', function() use ($app){
 		
 	 });
 
-	
 	$app->group('/buscar', function () use ($app) {
 		
 		$app->get('/porTexto', function() use ($app){
@@ -129,10 +137,7 @@ $app->group('/preguntas', function() use ($app){
 			});
 			
 		});
-		
-		
-		
-	
+			
   $app->get('/borrar', function() use ($app){
 		global $twig;
 		AccesoDatos::borrar($app->db, "PREGUNTAS", $app->request()->get('idPregunta'));
@@ -152,7 +157,7 @@ $app->group('/preguntas', function() use ($app){
 		 	
 	}); 	
 	
-	    $app->get('/', function() use ($app){
+	$app->get('/', function() use ($app){
 		global $twig;
 		
 		$r=AccesoDatos::listar($app->db, "PREGUNTAS", "ID, TEXTO");
@@ -160,8 +165,6 @@ $app->group('/preguntas', function() use ($app){
 		
 		echo $twig->render('preguntas.php',$valores);  
 	}); 
-	
-	
 	
 	$app->post('/guardar', function() use ($app){
 		global $twig;
@@ -182,6 +185,7 @@ $app->group('/prueba', function () use ($app) {
 		global $twig;
 		echo $twig->render('prueba.php');
 	});
+	
 	$app->post('/guardar', function() use ($app){
 		global $twig;
 		$valores=Utilidades::getDatosFormulario($app);
@@ -189,19 +193,21 @@ $app->group('/prueba', function () use ($app) {
 	});
 });
 
-		$app->get('/guardarPregunta', function() use ($app){
-		global $twig;
-		$datos=Pregunta::guardarPregunta($app->request()->get('ID'));
-		echo json_encode($datos);
-	});
+$app->get('/guardarPregunta', function() use ($app){
+	global $twig;
+	$datos=Pregunta::guardarPregunta($app->request()->get('ID'));
+	echo json_encode($datos);
+});
 
 $app->get('/about', function() use ($app){
 	global $twig;
 	echo $twig->render('about.php');  
 }); 
+	
 $app->get('/logout', function () use ($app) {
 		Login::forzarLogOut();
 });
+
 $app->group('/login', function () use ($app) {
 	
 	$app->get('/', function() use ($app){
@@ -221,13 +227,8 @@ $app->group('/login', function () use ($app) {
 		}
 	}); 
 });
+
 // Ponemos en marcha el router
 $app->run();
-<<<<<<< HEAD
-=======
 
-
-
-
->>>>>>> 61cef671fde10c5cb7592ea9e1c3dc1558fe2eff
 ?>
