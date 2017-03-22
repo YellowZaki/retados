@@ -11,5 +11,11 @@ class Pregunta {
 		$app = \Slim\Slim::getInstance();
 		AccesoDatos::borrar($app->db,"PREGUNTAS", $id);
 	}
+
+
+	public static function guardar($guardar){
+		$app = \Slim\Slim::getInstance();
+		AccesoDatos::almacenar($app->db,"PREGUNTAS", $guardar);
+	}
 }
 ?>
