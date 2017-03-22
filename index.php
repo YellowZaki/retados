@@ -35,11 +35,8 @@
 // [http://goo.gl/53iEcN] oAuth con Slim
 // [http://goo.gl/PXt2YG] Otra implementación de oAuth
 // ------------------------------------------------------------------------------------------------
-
 // DUDA funcionará flash() y error() tras poner session_start() antes de header()
-
 require 	 	'vendor/autoload.php';
-
 require_once	'controller/Utils.php';
 require_once	'controller/Pregunta.php';
 require_once	'controller/Email.php';
@@ -58,7 +55,6 @@ header('Content-type: text/html; charset=utf-8');
 use Respect\Validation\Validator as v;
 
 Twig_Autoloader::register();  
-
 $app = new \Slim\Slim(
 		array(
 			//'debug' => true,
@@ -67,7 +63,6 @@ $app = new \Slim\Slim(
 	);
 	
 $loader = new Twig_Loader_Filesystem('./view');  
-
 $twig = new Twig_Environment($loader, array(  
 	//'cache' => 'cache',  
 ));  
@@ -77,6 +72,7 @@ $app->container->singleton('db', function () {
 	$db->query("pragma foreign_keys=ON;");
 	return $db;
 });
+
 $app->container->singleton('acl', function () {
 	$app = \Slim\Slim::getInstance();
     return new PermisosACL($app->db);
@@ -101,18 +97,16 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 		else
 			echo $twig->render('auth_nok.php');
 	});
-
 	$app->get('/cancelar', function () use ($app){
 		global $twig;
 		echo $twig->render('auth_nok.php');
 	});
 });
 
-
 $app->group('/preguntas', function() use ($app){
 
 		
-		    $app->get('/pdf', function() use ($app){
+	$app->get('/pdf', function() use ($app){
 		global $twig;
 			
 		$p=AccesoDatos::listar($app->db, "pregunta", "ID, TEXTO");
@@ -122,7 +116,6 @@ $app->group('/preguntas', function() use ($app){
 		
 	 });
 
-	
 	$app->group('/buscar', function () use ($app) {
 		
 		$app->get('/porTexto', function() use ($app){
@@ -144,11 +137,7 @@ $app->group('/preguntas', function() use ($app){
 			});
 			
 		});
-		
-		
-		
-
-	
+			
   $app->get('/borrar', function() use ($app){
 		global $twig;
 		AccesoDatos::borrar($app->db, "PREGUNTAS", $app->request()->get('idPregunta'));
@@ -160,13 +149,15 @@ $app->group('/preguntas', function() use ($app){
 
 
 		$datos=Pregunta::cargar($app->request()->get('ID'));
-		
+		/*echo json_encode($datos);
+		return ;
+		*/
 		$valores=array('comentario'=>$datos);
 		echo $twig->render('pregunta.php',$valores);  
 		 	
 	}); 	
 	
-	    $app->get('/', function() use ($app){
+	$app->get('/', function() use ($app){
 		global $twig;
 		
 		$r=AccesoDatos::listar($app->db, "PREGUNTAS", "ID, TEXTO");
@@ -175,8 +166,6 @@ $app->group('/preguntas', function() use ($app){
 		echo $twig->render('preguntas.php',$valores);  
 	}); 
 	
-	
-	
 	$app->post('/guardar', function() use ($app){
 		global $twig;
 		$valores=Utilidades::getDatosFormulario($app);
@@ -184,11 +173,9 @@ $app->group('/preguntas', function() use ($app){
 		$valores['error']="Pregunta guardada correctamente";
 		$valores['message']="Error al guardar la pregunta";
 		echo $twig->render('preguntas.php',$valores);
-
 	});
 	
 });
-
 /*
  * Este bloque irá fuera tan pronto tengamos el primer formulario operativo
  */
@@ -198,6 +185,7 @@ $app->group('/prueba', function () use ($app) {
 		global $twig;
 		echo $twig->render('prueba.php');
 	});
+	
 	$app->post('/guardar', function() use ($app){
 		global $twig;
 		$valores=Utilidades::getDatosFormulario($app);
@@ -205,11 +193,17 @@ $app->group('/prueba', function () use ($app) {
 	});
 });
 
+$app->get('/guardarPregunta', function() use ($app){
+	global $twig;
+	$datos=Pregunta::guardarPregunta($app->request()->get('ID'));
+	echo json_encode($datos);
+});
+
 $app->get('/about', function() use ($app){
 	global $twig;
 	echo $twig->render('about.php');  
 }); 
-
+	
 $app->get('/logout', function () use ($app) {
 		Login::forzarLogOut();
 });
@@ -232,13 +226,9 @@ $app->group('/login', function () use ($app) {
 			echo $twig->render('login.php',$valores);
 		}
 	}); 
-
 });
 
 // Ponemos en marcha el router
 $app->run();
-
-
-
 
 ?>
