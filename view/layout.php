@@ -93,50 +93,7 @@
 <div class="divider"></div>
 
 <div class="row">
-
-
-  
-  <hr>
-  
-  <div class="col-sm-8">
-      
-      <div class="row form-group">
-        <div class="col-xs-3">
-          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required="">
-        </div>
-        <div class="col-xs-3">
-          <input type="text" class="form-control" id="middleName" name="firstName" placeholder="Middle Name" required="">
-        </div>
-        <div class="col-xs-4">
-          <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required="">
-        </div>
-      </div>
-      <div class="row form-group">
-          <div class="col-xs-5">
-          <input type="email" class="form-control" name="email" placeholder="Email" required="">
-          </div>
-          <div class="col-xs-5">
-          <input type="email" class="form-control" name="phone" placeholder="Phone" required="">
-          </div>
-      </div>
-      <div class="row form-group">
-          <div class="col-xs-10">
-          <input type="homepage" class="form-control" placeholder="Website URL" required="">
-          </div>
-      </div>
-      <div class="row form-group">
-          <div class="col-xs-10">
-            <button class="btn btn-default pull-right">Contact Us</button>
-          </div>
-      </div>
-    
-  </div>
-  
 </div><!--/row-->
-
-</div><!--/container-->
-  
-</div><!--/wrap-->
 
 <div id="footer">
   <div class="container">
