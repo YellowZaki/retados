@@ -76,7 +76,7 @@
           <li><a href="/preguntas">Preguntas</a></li>
           <li class="active"><a href="/about"><strong>Acerca de</strong></a></li>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown">Mi perfil<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi perfil<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="/usuario/config">Configurar</a></li>
               <li><a href="/usuario/preguntas">Mis preguntas</a></li>

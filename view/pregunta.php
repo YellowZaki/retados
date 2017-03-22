@@ -27,13 +27,8 @@
 		
 		
 		<div class="form-group col-md-12">
-<<<<<<< HEAD
-			<label style="width:20px" "left:30px" class="derecha" for="nombre">Pregunta: </label>
-			<textarea style="width:100px" rows="8" cols="90" class="form-control" id="comentario" name="descripcion" >{{comentario.COMENTARIO}}</textarea>
-=======
 			<label for="nombre">Pregunta:</label>
 			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="descripcion" >{{comentario.TEXTO}}</textarea>
->>>>>>> 783af007b063a6f413648a71e5cd51c8b5dcf8c6
 		</div>
 		
 		<div class="form-group col-md-10"></div>
