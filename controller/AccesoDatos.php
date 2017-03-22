@@ -59,8 +59,11 @@ class AccesoDatos{
 		return $q->fetch(PDO::FETCH_ASSOC);
 	}
 	
-    public static function buscar($pdo, $nombreTabla, $camposSelect="*", $where="public string trim()"){
-        if( $where=="public string trim()")
+    public static function buscar($pdo, $nombreTabla, $camposSelect="*", $where=""){
+        if($where=="")
+        $where = "";
+        echo $whre . "<br>";
+        echo trim ($where, "Hed!");
                         
 		$q = $pdo->prepare("select $camposSelect from $nombreTabla $where");
 		$q->execute();
