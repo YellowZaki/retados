@@ -1,5 +1,6 @@
 <html lang="">
 	<head>
+		
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 			{% block cabecera %}
@@ -17,6 +18,18 @@
 		<link href="/css/bootstrap.css" rel="stylesheet">
 	</head>
 	<body>
+		
+		<script type="text/javascript">
+		window.onload = function() {
+		  EstablecerFecha();
+		};				
+							
+		function EstablecerFecha() {
+			var d = new Date();
+			var n = d.getFullYear();
+			document.getElementById("fecha").innerHTML = "<strong>Ret{A2}</strong> - (c) " + n + " I.E.S. Al-Ándalus";
+		}
+		</script>
 <!-- Wrap all page content here -->
 <div id="wrap">
   
@@ -87,7 +100,7 @@
     </div>
   </div>
 </div>
-    
+
 
 
 <div class="divider"></div>
@@ -97,9 +110,10 @@
 
 <div id="footer">
   <div class="container">
-    <p class="text-muted"><strong>Ret{A2}</strong> - (c) 2017 I.E.S. Al-Ándalus </p>
+	<p class="text-muted" id="fecha"></p>
   </div>
 </div>
+
 
 <ul class="nav pull-right scroll-top">
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
