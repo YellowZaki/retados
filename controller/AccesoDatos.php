@@ -72,7 +72,7 @@ class AccesoDatos{
 	}
 		
 	public static function listar($pdo, $nombreTabla, $camposSelect){
-		return $pdo->query("select $camposSelect from $nombreTabla where $pregunta=1")->fetchAll(PDO::FETCH_ASSOC);
+		return $pdo->query("select $camposSelect from $nombreTabla")->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	private static function generarActualizacion($nombreTabla, $valores){

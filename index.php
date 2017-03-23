@@ -213,6 +213,7 @@ $app->group('/preguntas', function() use ($app){
 		$valores['error']="Pregunta guardada correctamente";
 		$valores['message']="Error al guardar la pregunta";
 		echo $twig->render('preguntas.php',$valores);
+		
 	});
 	
 });
