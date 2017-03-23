@@ -27,8 +27,10 @@
 		
 		
 		<div class="form-group col-md-12">
+			
 			<label for="nombre">Pregunta:</label>
 			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="descripcion" >{{comentario.TEXTO}}</textarea>
+
 		</div>
 		
 		<div class="form-group col-md-10"></div>
@@ -50,18 +52,17 @@
 				
 				<tr>
 					<td><input data-type="productCode" name="texto" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td><input class="case" type="radio" name="correcta"></td>
+					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta"></td>
 				</tr>
-				
 				
 				<tr>
 					<td><input data-type="productCode" name="texto" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td><input class="case" type="radio" name="correcta"></td>
+					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta"></td>
 				</tr>
 						
 				<tr>
 					<td><input data-type="productCode" name="texto" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td><input class="case" type="radio" name="correcta"></td>
+					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta"></td>
 				</tr>
 			
 				
