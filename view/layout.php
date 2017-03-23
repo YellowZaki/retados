@@ -1,5 +1,6 @@
 <html lang="">
 	<head>
+		
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 			{% block cabecera %}
@@ -17,6 +18,18 @@
 		<link href="/css/bootstrap.css" rel="stylesheet">
 	</head>
 	<body>
+		
+		<script type="text/javascript">
+		window.onload = function() {
+		  EstablecerFecha();
+		};				
+							
+		function EstablecerFecha() {
+			var d = new Date();
+			var n = d.getFullYear();
+			document.getElementById("fecha").innerHTML = "<strong>Ret{A2}</strong> - (c) " + n + " I.E.S. Al-Ándalus";
+		}
+		</script>
 <!-- Wrap all page content here -->
 <div id="wrap">
   
@@ -63,7 +76,7 @@
           <li><a href="/preguntas">Preguntas</a></li>
           <li class="active"><a href="/about"><strong>Acerca de</strong></a></li>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown">Mi perfil<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi perfil<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="/usuario/config">Configurar</a></li>
               <li><a href="/usuario/preguntas">Mis preguntas</a></li>
@@ -87,62 +100,20 @@
     </div>
   </div>
 </div>
-    
+
 
 
 <div class="divider"></div>
 
 <div class="row">
-
-
-  
-  <hr>
-  
-  <div class="col-sm-8">
-      
-      <div class="row form-group">
-        <div class="col-xs-3">
-          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required="">
-        </div>
-        <div class="col-xs-3">
-          <input type="text" class="form-control" id="middleName" name="firstName" placeholder="Middle Name" required="">
-        </div>
-        <div class="col-xs-4">
-          <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required="">
-        </div>
-      </div>
-      <div class="row form-group">
-          <div class="col-xs-5">
-          <input type="email" class="form-control" name="email" placeholder="Email" required="">
-          </div>
-          <div class="col-xs-5">
-          <input type="email" class="form-control" name="phone" placeholder="Phone" required="">
-          </div>
-      </div>
-      <div class="row form-group">
-          <div class="col-xs-10">
-          <input type="homepage" class="form-control" placeholder="Website URL" required="">
-          </div>
-      </div>
-      <div class="row form-group">
-          <div class="col-xs-10">
-            <button class="btn btn-default pull-right">Contact Us</button>
-          </div>
-      </div>
-    
-  </div>
-  
 </div><!--/row-->
-
-</div><!--/container-->
-  
-</div><!--/wrap-->
 
 <div id="footer">
   <div class="container">
-    <p class="text-muted"><strong>Ret{A2}</strong> - (c) 2017 I.E.S. Al-Ándalus </p>
+	<p class="text-muted" id="fecha"></p>
   </div>
 </div>
+
 
 <ul class="nav pull-right scroll-top">
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
