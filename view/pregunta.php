@@ -27,11 +27,10 @@
 		
 		
 		<div class="form-group col-md-12">
-
-			<label style="width:20px" "left:30px" class="derecha" for="nombre">Pregunta: </label>
-			<textarea style="width:100px" rows="8" cols="90" class="form-control" id="comentario" name="descripcion" >{{comentario.COMENTARIO}}</textarea>
-
 			
+			<label for="nombre">Pregunta:</label>
+			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="descripcion" >{{comentario.TEXTO}}</textarea>
+
 		</div>
 		
 		<div class="form-group col-md-10"></div>

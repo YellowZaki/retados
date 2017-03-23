@@ -103,6 +103,46 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	});
 });
 
+
+
+	
+$app->group('/respuestas', function() use ($app){
+
+$app->group('/buscar', function () use ($app) {
+		
+		$app->get('/porTexto', function() use ($app){
+				global $twig;
+				
+				$valores=array(
+					"id_alumno"=>$app->request()->get('id')
+				);
+				
+				$pdo=$app->db;
+				$q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
+				$q->execute($valores);
+				$r=$q->fetchAll(PDO::FETCH_ASSOC);
+			
+				
+				$valores=array('comentarios'=>$r);
+				echo $twig->render('partes.php',$valores);  
+				 
+			});
+			
+		});
+		
+
+    $app->get('/', function() use ($app){
+		global $twig;
+		
+		$r=AccesoDatos::listar($app->db, "RESPUESTAS", "*");
+		$valores=array('respuestas'=>$r);
+		
+		echo $twig->render('preguntas.php',$valores);  
+	}); 
+}); 
+
+
+
 $app->group('/preguntas', function() use ($app){
 
 		
@@ -173,6 +213,7 @@ $app->group('/preguntas', function() use ($app){
 		$valores['error']="Pregunta guardada correctamente";
 		$valores['message']="Error al guardar la pregunta";
 		echo $twig->render('preguntas.php',$valores);
+		
 	});
 	
 });
