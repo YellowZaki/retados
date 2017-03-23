@@ -28,8 +28,8 @@
 		
 		<div class="form-group col-md-12">
 			
-			<label for="nombre">Pregunta:</label>
-			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="descripcion" >{{comentario.TEXTO}}</textarea>
+			<label for="texto">Pregunta:</label>
+			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="texto" >{{comentario.TEXTO}}</textarea>
 
 		</div>
 		
