@@ -60,10 +60,8 @@ class AccesoDatos{
 	}
 	
     public static function buscar($pdo, $nombreTabla, $camposSelect="*", $where=""){
-        if($where=="")
-        $where = "";
-        echo $whre . "<br>";
-        echo trim ($where, "Hed!");
+        if(trim($where)!="")
+			$where = "WHERE $where";
                         
 		$q = $pdo->prepare("select $camposSelect from $nombreTabla $where");
 		$q->execute();
@@ -71,8 +69,12 @@ class AccesoDatos{
 		return $q->fetch(PDO::FETCH_ASSOC);
 	}
 		
-	public static function listar($pdo, $nombreTabla, $camposSelect){
-		return $pdo->query("select $camposSelect from $nombreTabla")->fetchAll(PDO::FETCH_ASSOC);
+	public static function listar($pdo, $nombreTabla, $camposSelect, $where=""){
+		
+		if(trim($where)!="")
+			$where="WHERE $where";
+			
+		return $pdo->query("select $camposSelect from $nombreTabla $where")->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	private static function generarActualizacion($nombreTabla, $valores){

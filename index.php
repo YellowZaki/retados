@@ -39,6 +39,7 @@
 require 	 	'vendor/autoload.php';
 require_once	'controller/Utils.php';
 require_once	'controller/Pregunta.php';
+require_once	'controller/Respuesta.php';
 require_once	'controller/Email.php';
 require_once	'controller/GoogleDrive.php';
 require_once	'controller/LoginClave.php';
@@ -105,9 +106,12 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 
 $app->get('/carlos', function () use ($app){
 	global $twig;
-		AccesoDatos::listar($app->db, "RESPUESTAS", "id_pregunta=3");
+		$respuestas=AccesoDatos::listar($app->db, "RESPUESTAS", "*", "id_pregunta=3");
+		$respuestas[0]['TEXTO']=$respuestas[0]['TEXTO']."<<<<";
+		Pregunta::guardarRespuestas($respuestas);
+		
 		$app->redirect('/preguntas');
-		echo json_encode($respuestas);
+		
 	});
 
 	
