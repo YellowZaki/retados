@@ -209,11 +209,8 @@ $app->group('/preguntas', function() use ($app){
 	$app->post('/guardar', function() use ($app){
 		global $twig;
 		$valores=Utilidades::getDatosFormulario($app);
-		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
-		$valores['error']="Pregunta guardada correctamente";
-		$valores['message']="Error al guardar la pregunta";
-		echo $twig->render('preguntas.php',$valores);
-		
+		Pregunta::guardar($valores);
+        $app->redirect('/preguntas');		
 	});
 	
 });
