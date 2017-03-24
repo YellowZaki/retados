@@ -103,7 +103,12 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	});
 });
 
-
+$app->get('/carlos', function () use ($app){
+	global $twig;
+		AccesoDatos::listar($app->db, "RESPUESTAS", "id_pregunta=3");
+		$app->redirect('/preguntas');
+		echo json_encode($respuestas);
+	});
 
 	
 $app->group('/respuestas', function() use ($app){
@@ -114,17 +119,18 @@ $app->group('/respuestas', function() use ($app){
 				global $twig;
 				
 				$valores=array(
-					"id_alumno"=>$app->request()->get('id')
+					"TEXTO"=>$app->request()->get('texto')
 				);
 				
-				$pdo=$app->db;
-				$q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
-				$q->execute($valores);
-				$r=$q->fetchAll(PDO::FETCH_ASSOC);
+			    $pdo=$app->db;
+				 $q = $pdo->prepare("select * from preguntas where TEXTO like '%xxx%'");
+		    	 $q->execute($valores);
+				 $r=$q->fetchAll(PDO::FETCH_ASSOC);
 			
+				$texto="hola ".$app->request()->get('texto')."%xxx%";
 				
 				$valores=array('comentarios'=>$r);
-				echo $twig->render('partes.php',$valores);  
+				echo $twig->render('preguntas.php',$valores);
 				 
 			});
 			
@@ -209,11 +215,8 @@ $app->group('/preguntas', function() use ($app){
 	$app->post('/guardar', function() use ($app){
 		global $twig;
 		$valores=Utilidades::getDatosFormulario($app);
-		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
-		$valores['error']="Pregunta guardada correctamente";
-		$valores['message']="Error al guardar la pregunta";
-		echo $twig->render('preguntas.php',$valores);
-		
+		Pregunta::guardar($valores);
+        $app->redirect('/preguntas');		
 	});
 	
 });

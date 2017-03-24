@@ -16,5 +16,13 @@ class Pregunta {
 		$app = \Slim\Slim::getInstance();
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $guardar);
 	}
+	private static function guardarRespuestas($respuestas){
+		$app = \Slim\Slim::getInstance();
+		
+		
+		foreach ($r as $respuestas){
+			Respuesta::guardar($r);
+		}
+	}
 }
 ?>
