@@ -199,9 +199,7 @@ $app->group('/preguntas', function() use ($app){
 
 
 		$datos=Pregunta::cargar($app->request()->get('ID'));
-		/*echo json_encode($datos);
-		return ;
-		*/
+		
 		$valores=array('comentario'=>$datos);
 		echo $twig->render('pregunta.php',$valores);  
 		 	
@@ -275,6 +273,23 @@ $app->group('/login', function () use ($app) {
 		}
 	}); 
 });
+
+$app->get('/array', function() use ($app){
+	global $twig;
+	
+	$p=array("id"=>1, 
+			 "texto"=>"jose antonio",
+			 "respuestas"=>array(
+					array("id"=>1, "texto"=>"respuesta 1.1"),
+					array("id"=>2, "texto"=>"respuesta 1.2"),
+					array("id"=>3, "texto"=>"respuesta 1.3"),
+					array("id"=>4, "texto"=>"respuesta 1.4")
+			   )
+	);
+	echo json_encode($obj);
+	echo $obj["valores"][0]["texto"];
+}); 
+
 
 // Ponemos en marcha el router
 $app->run();
