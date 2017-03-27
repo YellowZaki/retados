@@ -59,6 +59,7 @@ class AccesoDatos{
 		return $q->fetch(PDO::FETCH_ASSOC);
 	}
 	
+	
     public static function buscar($pdo, $nombreTabla, $camposSelect="*", $where=""){
         if($where=="")
         $where = "";
@@ -73,6 +74,10 @@ class AccesoDatos{
 		
 	public static function listar($pdo, $nombreTabla, $camposSelect){
 		return $pdo->query("select $camposSelect from $nombreTabla")->fetchAll(PDO::FETCH_ASSOC);
+	}
+	
+	public static function listarrandom($pdo, $nombreTabla, $camposSelect, $where){
+		return $pdo->query("select $camposSelect from $nombreTabla $where")->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	private static function generarActualizacion($nombreTabla, $valores){
