@@ -61,25 +61,11 @@ class AccesoDatos{
 	
 	
     public static function buscar($pdo, $nombreTabla, $camposSelect="*", $where=""){
-<<<<<<< HEAD
-		
-		if(trim . $where==""){
-			echo trim($where="");
-		}
-		else
-		{
-			$where=where($pdo, $nombreTabla, $camposSelect);
-		}
-		
-		$q = $pdo->prepare($sql);
-		$q->execute($valores);
-=======
         if(trim($where)!="")
 			$where = "WHERE $where";
                         
 		$q = $pdo->prepare("select $camposSelect from $nombreTabla $where");
 		$q->execute();
->>>>>>> eea964f5d36dcbd6732b51fe5c6849387ff09fa2
 		
 		return $q->fetch(PDO::FETCH_ASSOC);
 	}
