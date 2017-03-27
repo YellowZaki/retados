@@ -1,6 +1,11 @@
 <?php 
 
 class Pregunta {
+
+	public static function sortear($num){
+		$app = \Slim\Slim::getInstance();
+		return AccesoDatos::listar($app->db, "PREGUNTAS", "texto", "1=1 order by random() limit $num");
+	}
 	
 	public static function cargar($id){
 		$app = \Slim\Slim::getInstance();
