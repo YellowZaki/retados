@@ -18,6 +18,7 @@
 
 <div class="jumbotron">
 	<h1>CREAR PREGUNTA</h1>
+	<h2>hola que tal</h2>
 </div>
 
 <form method="post" action="/preguntas/guardar" role="form">
