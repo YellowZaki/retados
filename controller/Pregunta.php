@@ -20,7 +20,7 @@ class Pregunta {
 	private static function guardarRespuestas($respuestas){
 		$app = \Slim\Slim::getInstance();
 		
-		foreach ($r as $respuestas){
+		foreach ($respuestas as $r){
 			Respuesta::guardar($r);
 		}
 	}

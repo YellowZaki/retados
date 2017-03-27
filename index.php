@@ -39,6 +39,7 @@
 require 	 	'vendor/autoload.php';
 require_once	'controller/Utils.php';
 require_once	'controller/Pregunta.php';
+require_once	'controller/Respuesta.php';
 require_once	'controller/Email.php';
 require_once	'controller/GoogleDrive.php';
 require_once	'controller/LoginClave.php';
@@ -105,9 +106,12 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 
 $app->get('/carlos', function () use ($app){
 	global $twig;
-		AccesoDatos::listar($app->db, "RESPUESTAS", "id_pregunta=3");
+		$respuestas=AccesoDatos::listar($app->db, "RESPUESTAS", "*", "id_pregunta=3");
+		$respuestas[0]['TEXTO']=$respuestas[0]['TEXTO']."<<<<";
+		Pregunta::guardarRespuestas($respuestas);
+		
 		$app->redirect('/preguntas');
-		echo json_encode($respuestas);
+		
 	});
 
 	
@@ -195,9 +199,7 @@ $app->group('/preguntas', function() use ($app){
 
 
 		$datos=Pregunta::cargar($app->request()->get('ID'));
-		/*echo json_encode($datos);
-		return ;
-		*/
+		
 		$valores=array('comentario'=>$datos);
 		echo $twig->render('pregunta.php',$valores);  
 		 	
@@ -271,6 +273,23 @@ $app->group('/login', function () use ($app) {
 		}
 	}); 
 });
+
+$app->get('/array', function() use ($app){
+	global $twig;
+	
+	$p=array("id"=>1, 
+			 "texto"=>"jose antonio",
+			 "respuestas"=>array(
+					array("id"=>1, "texto"=>"respuesta 1.1"),
+					array("id"=>2, "texto"=>"respuesta 1.2"),
+					array("id"=>3, "texto"=>"respuesta 1.3"),
+					array("id"=>4, "texto"=>"respuesta 1.4")
+			   )
+	);
+	echo json_encode($obj);
+	echo $obj["valores"][0]["texto"];
+}); 
+
 
 // Ponemos en marcha el router
 $app->run();
