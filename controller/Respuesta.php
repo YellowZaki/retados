@@ -15,6 +15,7 @@ class Respuesta {
 	public static function listar($id){
 		$app = \Slim\Slim::getInstance();
 	    return AccesoDatos::listar($app->db, "RESPUESTAS", "*");
+	}
 
 	
 	public static function listaraleatorio($id,$num){
@@ -24,7 +25,7 @@ class Respuesta {
 	
 	//$id=ID_pregunta
 	
-	}
+	
 	
 	public static function guardar($datos){
 		$app = \Slim\Slim::getInstance();
