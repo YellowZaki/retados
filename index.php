@@ -39,6 +39,7 @@
 require 	 	'vendor/autoload.php';
 require_once	'controller/Utils.php';
 require_once	'controller/Pregunta.php';
+require_once	'controller/Respuesta.php';
 require_once	'controller/Email.php';
 require_once	'controller/GoogleDrive.php';
 require_once	'controller/LoginClave.php';
@@ -103,7 +104,15 @@ $app->group('/auth','Login::forzarLogin', function () use ($app) {
 	});
 });
 
-
+$app->get('/carlos', function () use ($app){
+	global $twig;
+		$respuestas=AccesoDatos::listar($app->db, "RESPUESTAS", "*", "id_pregunta=3");
+		$respuestas[0]['TEXTO']=$respuestas[0]['TEXTO']."<<<<";
+		Pregunta::guardarRespuestas($respuestas);
+		
+		$app->redirect('/preguntas');
+		
+	});
 
 	
 $app->group('/respuestas', function() use ($app){
@@ -114,17 +123,18 @@ $app->group('/buscar', function () use ($app) {
 				global $twig;
 				
 				$valores=array(
-					"id_alumno"=>$app->request()->get('id')
+					"TEXTO"=>$app->request()->get('texto')
 				);
 				
-				$pdo=$app->db;
-				$q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
-				$q->execute($valores);
-				$r=$q->fetchAll(PDO::FETCH_ASSOC);
+			    $pdo=$app->db;
+				 $q = $pdo->prepare("select * from preguntas where TEXTO like '%xxx%'");
+		    	 $q->execute($valores);
+				 $r=$q->fetchAll(PDO::FETCH_ASSOC);
 			
+				$texto="hola ".$app->request()->get('texto')."%xxx%";
 				
 				$valores=array('comentarios'=>$r);
-				echo $twig->render('partes.php',$valores);  
+				echo $twig->render('preguntas.php',$valores);
 				 
 			});
 			
@@ -189,9 +199,7 @@ $app->group('/preguntas', function() use ($app){
 
 
 		$datos=Pregunta::cargar($app->request()->get('ID'));
-		/*echo json_encode($datos);
-		return ;
-		*/
+		
 		$valores=array('comentario'=>$datos);
 		echo $twig->render('pregunta.php',$valores);  
 		 	
@@ -209,11 +217,8 @@ $app->group('/preguntas', function() use ($app){
 	$app->post('/guardar', function() use ($app){
 		global $twig;
 		$valores=Utilidades::getDatosFormulario($app);
-		AccesoDatos::guardar($app->db,"PREGUNTAS", $valores);
-		$valores['error']="Pregunta guardada correctamente";
-		$valores['message']="Error al guardar la pregunta";
-		echo $twig->render('preguntas.php',$valores);
-		
+		Pregunta::guardar($valores);
+        $app->redirect('/preguntas');		
 	});
 	
 });
@@ -268,6 +273,23 @@ $app->group('/login', function () use ($app) {
 		}
 	}); 
 });
+
+$app->get('/array', function() use ($app){
+	global $twig;
+	
+	$p=array("id"=>1, 
+			 "texto"=>"jose antonio",
+			 "respuestas"=>array(
+					array("id"=>1, "texto"=>"respuesta 1.1"),
+					array("id"=>2, "texto"=>"respuesta 1.2"),
+					array("id"=>3, "texto"=>"respuesta 1.3"),
+					array("id"=>4, "texto"=>"respuesta 1.4")
+			   )
+	);
+	echo json_encode($obj);
+	echo $obj["valores"][0]["texto"];
+}); 
+
 
 // Ponemos en marcha el router
 $app->run();

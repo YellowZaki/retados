@@ -17,19 +17,18 @@
 {% endif %}
 
 <div class="jumbotron">
-	<h1>Alumnos registrados</h1>
-	<p class="lead">Listado de alumnos</p>
+	<h1>CREAR PREGUNTA</h1>
 </div>
 
-<form method="post" action="/alumnos/guardar" role="form">
+<form method="post" action="/preguntas/guardar" role="form">
 		
 		<input type="hidden" name="id" value="{{comentario.ID}}"/>
 		
 		
 		<div class="form-group col-md-12">
 			
-			<label for="nombre">Pregunta:</label>
-			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="descripcion" >{{comentario.TEXTO}}</textarea>
+			<label for="texto">Pregunta:</label>
+			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="texto" >{{comentario.TEXTO}}</textarea>
 
 		</div>
 		
@@ -39,7 +38,7 @@
 			<table class="table table-bordered table-hover" id="invoiceTable">
 				<thead>
 					<tr>
-						<th width="95%">Item No</th>	
+						<th width="95%">Respuesta</th>	
 						<th width="5%">Correcta</th>		
 						
 					</tr>
