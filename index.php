@@ -117,7 +117,7 @@ $app->get('/carlos', function () use ($app){
 	
 $app->group('/respuestas', function() use ($app){
 
-$app->group('/buscar', function () use ($app) {
+	$app->group('/buscar', function () use ($app) {
 		
 		$app->get('/porTexto', function() use ($app){
 				global $twig;
