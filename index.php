@@ -154,6 +154,10 @@ $app->group('/buscar', function () use ($app) {
 
 
 $app->group('/preguntas', function() use ($app){
+	$app->get ('/cancelar', function() use ($app){
+		global $twig;
+		$app->redirect('/preguntas');
+	});
 
 		
 	$app->get('/pdf', function() use ($app){
