@@ -6,9 +6,10 @@
 			{% block cabecera %}
 			{% endblock %}
 		<title>Ret{A2}</title>
-		<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+
 		<meta name="generator" content="Bootply" />
 	    <link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
+	    <script src="/js/jquery.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
@@ -120,9 +121,12 @@
 </ul>
 
 	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>-->
+		
+		<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
 		<script src="/js/scripts.js"></script>
+		<script src="/js/jquery-qrcode-0.14.0.min.js"></script>
 	</body>
 </html>
