@@ -14,7 +14,7 @@ class Respuesta {
 	
 	public static function listar($idPregunta){
 		$app = \Slim\Slim::getInstance();
-	    return AccesoDatos::listar($app->db, "RESPUESTAS", "*","ID_PREGUNTA=$idPregunta");
+	    return AccesoDatos::listar($app->db, "RESPUESTAS", "*", "ID_PREGUNTA=$idPregunta");
 	}
 
 	
