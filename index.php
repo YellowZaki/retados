@@ -144,7 +144,7 @@ $app->group('/buscar', function () use ($app) {
     $app->get('/', function() use ($app){
 		global $twig;
 		
-		$r=AccesoDatos::listar($app->db, "RESPUESTAS", "*");
+		$r=Respuesta::listar($app->db, "RESPUESTAS", "*");
 		$valores=array('respuestas'=>$r);
 		
 		echo $twig->render('preguntas.php',$valores);  
