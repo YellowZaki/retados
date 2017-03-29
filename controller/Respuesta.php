@@ -18,9 +18,9 @@ class Respuesta {
 	}
 
 	
-	public static function sortear($id,$num){
+	public static function sortear($idPregunta,$numRespuestas){
 		$app = \Slim\Slim::getInstance();
-		return AccesoDatos::listar($app->db, "RESPUESTAS", "texto", "ID_PREGUNTA=$id order by random() limit $num");
+		return AccesoDatos::listar($app->db, "RESPUESTAS", "texto", "ID_PREGUNTA=$idPregunta order by random() limit $numRespuestas");
 	}	
 	
 	public static function guardar($datos){
