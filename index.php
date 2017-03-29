@@ -190,7 +190,7 @@ $app->group('/preguntas', function() use ($app){
 			
   $app->get('/borrar', function() use ($app){
 		global $twig;
-		AccesoDatos::borrar($app->db, "PREGUNTAS", $app->request()->get('idPregunta'));
+		AccesoDatos::borrar($app->db, "PREGUNTAS", $app->request()->get('ID'));
 		$app->redirect('/preguntas');
 	}); 	
 	

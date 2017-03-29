@@ -59,6 +59,7 @@ class AccesoDatos{
 		return $q->fetch(PDO::FETCH_ASSOC);
 	}
 	
+	
     public static function buscar($pdo, $nombreTabla, $camposSelect="*", $where=""){
         if(trim($where)!="")
 			$where = "WHERE $where";
@@ -76,6 +77,7 @@ class AccesoDatos{
 			
 		return $pdo->query("select $camposSelect from $nombreTabla $where")->fetchAll(PDO::FETCH_ASSOC);
 	}
+	
 
 	private static function generarActualizacion($nombreTabla, $valores){
 
