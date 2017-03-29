@@ -18,14 +18,10 @@ class Respuesta {
 	}
 
 	
-	public static function listaraleatorio($id,$num){
+	public static function sortear($idPregunta,$numRespuestas){
 		$app = \Slim\Slim::getInstance();
-		return AccesoDatos::listar($app->db, "RESPUESTAS", "texto", "where $id = 2 order by random() $num");
-	}
-	
-	//$id=ID_pregunta
-	
-	
+		return AccesoDatos::listar($app->db, "RESPUESTAS", "texto", "ID_PREGUNTA=$idPregunta order by random() limit $numRespuestas");
+	}	
 	
 	public static function guardar($datos){
 		$app = \Slim\Slim::getInstance();

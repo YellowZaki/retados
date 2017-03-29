@@ -1,0 +1,1 @@
+select ID from respuestas where (select ID from preguntas where respuestas.ID = preguntas.ID) order by random() limit 4
