@@ -70,7 +70,7 @@ class AccesoDatos{
 		return $q->fetch(PDO::FETCH_ASSOC);
 	}
 		
-	public static function listar($pdo, $nombreTabla, $camposSelect, $where=""){
+	public static function listar($pdo, $nombreTabla, $camposSelect="*", $where=""){
 		
 		if(trim($where)!="")
 			$where="WHERE $where";

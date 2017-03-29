@@ -28,7 +28,7 @@
 			
 	{% endblock %}
 		
-    <title>Control de Partes</title>
+    <title>Ret{A2}</title>
 
     <!-- ===========================
     FONTS & ICONS
