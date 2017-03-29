@@ -2,10 +2,10 @@
 
 class Cuestionario {
 	
-	public static function generar(){
+	public static function generar($numPreguntas){
 		$app = \Slim\Slim::getInstance();
-		Pregunta::sortear();
-		Cuestionario::toJSON();
+		Pregunta::sortear($numPreguntas);
+		Cuestionario::toJSON($preguntas);
 	}
 
 	}
