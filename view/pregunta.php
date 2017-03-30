@@ -18,6 +18,7 @@
 
 <div class="jumbotron">
 	<h1>CREAR PREGUNTA</h1>
+	<h2>crea aquí una magic question</h2>
 </div>
 
 <form method="post" action="/preguntas/guardar" role="form">
