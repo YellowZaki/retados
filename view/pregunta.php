@@ -77,8 +77,9 @@
 			<button type="submit" class="btn btn-success">Aceptar</button>
 		</div>
         <div class="form-group col-md-1">
-			<a href="/alumnos/cancelar" class="btn btn-danger">Cancelar</a>
+			<a href="/preguntas/cancelar" class="btn btn-danger">Cancelar</a>
 		</div>
+		
 
 		
 </form>
