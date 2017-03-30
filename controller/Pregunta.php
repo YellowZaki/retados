@@ -19,11 +19,11 @@ class Pregunta {
 
 	public static function guardar($guardar){
 		$app = \Slim\Slim::getInstance();
+		error_log(">>>>>".json_encode($guardar));
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $guardar);
 	}
 	private static function guardarRespuestas($respuestas){
 		$app = \Slim\Slim::getInstance();
-		
 		
 		foreach ($respuestas as $r){
 			Respuesta::guardar($r);
