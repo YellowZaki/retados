@@ -172,21 +172,18 @@ $app->group('/preguntas', function() use ($app){
 				global $twig;
 				
 				$valores=array(
-					"valores"=>$app->request()->get('valor')
+					"id_preguntas"=>$app->request()->get('lc')
 				);
 				
-			   /* $pdo=$app->db;
-				* $q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
-		    	* $q->execute($valores);
-				* $r=$q->fetchAll(PDO::FETCH_ASSOC);
-			*/
-				
-				$valores=array('comentarios'=>$r);
-				echo $twig->render('partes.php',$valores);
-				 
-			});
+				$pdo=$app->db;
+				$rsdo=$AccesoDatos::listar($pdo, "preguntas","texto","texto like '% %' ");
 			
-		});
+				
+				/*$valores=array('comentarios'=>$r);
+				echo $twig->render('Pregunta.php',$valores);  
+				 */
+				 echo json_encode($rsdo);
+			});
 			
   $app->get('/borrar', function() use ($app){
 		global $twig;
@@ -220,7 +217,7 @@ $app->group('/preguntas', function() use ($app){
 		Pregunta::guardar($valores);
         $app->redirect('/preguntas');		
 	});
-	
+		
 });
 /*
  * Este bloque irá fuera tan pronto tengamos el primer formulario operativo
