@@ -29,6 +29,5 @@ class Pregunta {
 			Respuesta::guardar($r);
 		}
 	}
-	
 }
 ?>
