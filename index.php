@@ -123,15 +123,16 @@ $app->group('/respuestas', function() use ($app){
 				global $twig;
 				
 				$valores=array(
-					"TEXTO"=>$app->request()->get('texto')
+					"TEXTO"=>"borrame luego"
 				);
 				
+				$valor=$app->request()->get('texto');
 			    $pdo=$app->db;
-				 $q = $pdo->prepare("select * from preguntas where TEXTO like '%xxx%'");
-		    	 $q->execute($valores);
-				 $r=$q->fetchAll(PDO::FETCH_ASSOC);
+				$q = $pdo->prepare("select * from preguntas where TEXTO like '%$valor%'");
+		    	$q->execute($valores);
+				$r=$q->fetchAll(PDO::FETCH_ASSOC);
 			
-				$texto="hola ".$app->request()->get('texto')."%xxx%";
+				$texto="hola ".$app->request()->get('texto')."%$valor%";
 				
 				$valores=array('comentarios'=>$r);
 				echo $twig->render('preguntas.php',$valores);
