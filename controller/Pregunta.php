@@ -20,8 +20,17 @@ class Pregunta {
 	public static function guardar($guardar){
 		$app = \Slim\Slim::getInstance();
 		error_log(">>>>>".json_encode($guardar));
-		AccesoDatos::guardar($app->db,"PREGUNTAS", $guardar);
+		$valorespregunta=array(
+			"id"=>$guardar['id'],
+			"texto"=>$guardar['texto']
+		);
+		AccesoDatos::guardar($app->db,"PREGUNTAS", $valorespregunta);
+		unset($guardar['id']);
+		unset($guardar['texto']);
+		self::guardarRespuestas($guardar);
 	}
+	
+	
 	private static function guardarRespuestas($respuestas){
 		$app = \Slim\Slim::getInstance();
 		
