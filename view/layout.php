@@ -41,6 +41,7 @@
         <h1><a href="/" title="Bootstrap Template">Ret{A2}</a>
           <p class="lead">I.E.S Al-Ándalus</p></h1>
           
+          
 
       </div>
       <div class="col-sm-6">
