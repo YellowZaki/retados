@@ -34,16 +34,15 @@
 		
 		<div class="form-group col-md-10">
 			
-<p>tags</p>
+<p style="text-align: left;">tags</p>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-tagsinput.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">    
     <link rel="stylesheet" href="/css/app.css">
     
     <div class="example example_typeahead">
 		
-        <div class="bs-docs-example">
+        <div class="bs-docs-example" style ="text-align: left;">
           <input type="text" value="" />
         </div>
         
@@ -51,9 +50,9 @@
 	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-tagsinput.min.js"></script>
-    <script src="js/bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
-    <script src="js/app_bs2.js"></script>
+    <script src="/js/bootstrap-tagsinput.min.js"></script>
+    <script src="/js/bootstrap-tagsinput-angular.min.js"></script>
+    <script src="/js/app_bs2.js"></script>
     
     </div>
     
@@ -66,7 +65,7 @@
 						
 					</tr>
 				</thead>
-			<tbody>					
+			<tbody style= "">					
 				<tr>
 					<td><input data-type="productCode" name="texto" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
 					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta"></td>
