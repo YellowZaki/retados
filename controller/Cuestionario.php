@@ -7,7 +7,6 @@ class Cuestionario {
 		$p= Pregunta::sortear($numPreguntas);
 		return Cuestionario::toJSON($p);
 	}
-	}
+}
 
 ?>
-

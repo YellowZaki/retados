@@ -18,7 +18,6 @@
 
 <div class="jumbotron">
 	<h1>CREAR PREGUNTA</h1>
-	<h2>crea aquí una magic question</h2>
 </div>
 
 <form method="post" action="/preguntas/guardar" role="form">
@@ -33,10 +32,33 @@
 
 		</div>
 		
-		<div class="form-group col-md-10"></div>
+		<div class="form-group col-md-10">
 			
+<p>tags</p>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">    
+    <link rel="stylesheet" href="/css/app.css">
+    
+    <div class="example example_typeahead">
+		
+        <div class="bs-docs-example">
+          <input type="text" value="" />
+        </div>
+        
+	</div>
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-tagsinput.min.js"></script>
+    <script src="js/bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
+    <script src="js/app_bs2.js"></script>
+    
+    </div>
+    
 		<div class="form-group col-md-12">
-			<table class="table table-bordered table-hover" id="invoiceTable">
+			<table class="table table-bordered table-hover" id="invoiceTable">				
 				<thead>
 					<tr>
 						<th width="95%">Respuesta</th>	
@@ -78,12 +100,12 @@
 			<button type="submit" class="btn btn-success">Aceptar</button>
 		</div>
         <div class="form-group col-md-1">
-			<a href="/preguntas/cancelar" class="btn btn-danger">Cancelar</a>
+			<a href="/alumnos/cancelar" class="btn btn-danger">Cancelar</a>
 		</div>
-		
 
-		
+				
 </form>
+
 	<script>tinymce.init({ selector:'textarea' });</script>
 
 {% endblock cuerpo %}
