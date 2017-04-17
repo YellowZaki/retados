@@ -36,7 +36,6 @@
 			
 <p style="text-align: left;">tags</p>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">    
     <link rel="stylesheet" href="/css/app.css">
     
