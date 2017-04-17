@@ -22,7 +22,7 @@ class Pregunta {
 		error_log(">>>>>".json_encode($guardar));
 		$valorespregunta=array(
 			"id"=>$guardar['id'],
-			"texto"=>$guardar['texto']
+			"texto"=>$guardar['pregunta']
 		);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valorespregunta);
 		unset($guardar['id']);
