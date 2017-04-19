@@ -26,8 +26,8 @@ class Pregunta {
 		$app = \Slim\Slim::getInstance();
 		
 		$valorespregunta=array(
-			"id"=>$guardar['id'],
-			"texto"=>$guardar['pregunta']
+			"ID"=>$guardar['id'],
+			"TEXTO"=>$guardar['pregunta']
 		);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valorespregunta);
 		
