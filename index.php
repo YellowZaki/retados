@@ -108,7 +108,7 @@ $app->get('/carlos', function () use ($app){
 	global $twig;
 		$respuestas=AccesoDatos::listar($app->db, "RESPUESTAS", "*", "id_pregunta=3");
 		$respuestas[0]['TEXTO']=$respuestas[0]['TEXTO']."<<<<";
-		Pregunta::guardarRespuestas($respuestas);
+		Pregunta::guardarRespuestas($respuestas, $idPregunta, $respuestaCorrecta);
 		
 		$app->redirect('/preguntas');
 		
