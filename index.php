@@ -202,9 +202,16 @@ $app->group('/preguntas', function() use ($app){
 		global $twig;
 
 
-		$datos=Pregunta::cargar($app->request()->get('ID'));
+		$id=$app->request()->get('ID');
 		
-		$valores=array('comentario'=>$datos);
+		$datos=Pregunta::cargar($id);
+		
+		// TODO quitar cuando se implemente correctamente Pregunta::cargar()
+		$respuestas=Respuesta::listar($id);
+		
+		$valores=array('comentario'=>$datos,
+					   'respuestas'=>$respuestas
+				);
 		echo $twig->render('pregunta.php',$valores);  
 		 	
 	}); 	
