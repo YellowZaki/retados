@@ -18,15 +18,24 @@ class Pregunta {
 	}
 
 	public static function guardar($guardar){
-		$app = \Slim\Slim::getInstance();
+		
 		error_log(">>>>>".json_encode($guardar));
+		
+		// Guardamos los datos de la PREGUNTA
+		
+		$app = \Slim\Slim::getInstance();
+		
 		$valorespregunta=array(
 			"id"=>$guardar['id'],
-			"texto"=>$guardar['texto']
+			"texto"=>$guardar['pregunta']
 		);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valorespregunta);
+		
+		// Guardamos las respuestas de la PREGUNTA
+		
 		unset($guardar['id']);
-		unset($guardar['texto']);
+		unset($guardar['pregunta']);
+		
 		self::guardarRespuestas($guardar);
 	}
 	
