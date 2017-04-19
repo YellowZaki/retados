@@ -1,0 +1,1 @@
+delete from etiquetas where id in (select distinct n1.id from etiquetas as n1, etiquetas as n2 where n1.TEXTO = n2.TEXTO and n1.ID > n2.ID);
