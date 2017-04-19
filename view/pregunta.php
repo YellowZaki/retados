@@ -68,8 +68,8 @@
 				
 				 {% for respuesta in respuestas %}
                 <tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]" value="{{RESPUESTA.ID}}, {{ID_PREGUNTA}}, {{TEXTO}}, {{CORRECTA}}"></td>
+					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" value="{{RESPUESTA.TEXTO}}" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
+					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]" value="{{RESPUESTA.CORRECTA}}"></td>
 				</tr>
 {% endfor %}
 			
