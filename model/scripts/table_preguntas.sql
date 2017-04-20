@@ -3,6 +3,3 @@ CREATE TABLE "PREGUNTAS" (
     "TEXTO" TEXT,
     "ETIQUETAS" TEXT,
 );
-
-select count(*) from preguntas where etiquetas like "%"  ||  ( select texto from etiquetas like"%%" )  || "%";
-

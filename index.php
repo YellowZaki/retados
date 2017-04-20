@@ -285,6 +285,21 @@ $app->group('/login', function () use ($app) {
 	}); 
 });
 
+$app->get('/toJSON', function() use ($app){
+	global $twig;
+	
+	$p=array("id"=>1, 
+			 "texto"=>"Cuestionario",
+			 "respuestas"=>array(
+					array("id"=>1, "texto"=>"respuesta 1.1"),
+					array("id"=>2, "texto"=>"respuesta 1.2"),
+					array("id"=>3, "texto"=>"respuesta 1.3"),
+					array("id"=>4, "texto"=>"respuesta 1.4")
+			   )
+	);
+	echo json_encode($p);
+}); 
+
 $app->get('/array', function() use ($app){
 	global $twig;
 	

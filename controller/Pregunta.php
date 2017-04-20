@@ -15,6 +15,11 @@ class Pregunta {
 	public static function eliminar($id){
 		$app = \Slim\Slim::getInstance();
 		AccesoDatos::borrar($app->db,"PREGUNTAS", $id);
+	} 
+	
+	private static function eliminarRespuestas($idPregunta){
+		$app = \Slim\Slim::getInstance();
+		AccesoDatos::eliminarRespuestas($app->db,"RESPUESTAS",$idPregunta);
 	}
 
 	public static function guardar($guardar){
