@@ -73,7 +73,7 @@ class AccesoDatos{
 	/* Elimina todas las entradas de la tabla $NOMBRETABLA que cumplan la condición indicada en $WHERE */
 	
 	public static function eliminar($pdo, $nombreTabla, $where=""){
-	
+		error_log("Invocado un AccesoDatos::eliminar($nombreTabla, $where);");
 	}
 	
 	public static function listar($pdo, $nombreTabla, $camposSelect="*", $where=""){
