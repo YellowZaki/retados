@@ -19,7 +19,7 @@ class Pregunta {
 	
 	private static function eliminarRespuestas($idPregunta){
 		$app = \Slim\Slim::getInstance();
-		AccesoDatos::eliminarRespuestas($app->db,"PREGUNTAS",$idPregunta);
+		AccesoDatos::eliminarRespuestas($app->db,"RESPUESTAS",$idPregunta);
 	}
 
 	public static function guardar($guardar){
