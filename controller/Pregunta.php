@@ -15,18 +15,32 @@ class Pregunta {
 	public static function eliminar($id){
 		$app = \Slim\Slim::getInstance();
 		AccesoDatos::borrar($app->db,"PREGUNTAS", $id);
+	} 
+	
+	private static function eliminarRespuestas($idPregunta){
+		$app = \Slim\Slim::getInstance();
+		AccesoDatos::eliminarRespuestas($app->db,"RESPUESTAS",$idPregunta);
 	}
 
 	public static function guardar($guardar){
-		$app = \Slim\Slim::getInstance();
+		
 		error_log(">>>>>".json_encode($guardar));
+		
+		// Guardamos los datos de la PREGUNTA
+		
+		$app = \Slim\Slim::getInstance();
+		
 		$valorespregunta=array(
-			"id"=>$guardar['id'],
-			"texto"=>$guardar['texto']
+			"ID"=>$guardar['id'],
+			"TEXTO"=>$guardar['pregunta']
 		);
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valorespregunta);
+		
+		// Guardamos las respuestas de la PREGUNTA
+		
 		unset($guardar['id']);
-		unset($guardar['texto']);
+		unset($guardar['pregunta']);
+		
 		self::guardarRespuestas($guardar);
 	}
 	

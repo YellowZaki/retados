@@ -1,0 +1,1 @@
+select count(*) from preguntas where etiquetas like "%"  ||  ( select texto from etiquetas  )  || "%";

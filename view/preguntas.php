@@ -19,7 +19,7 @@
 
 {% for pregunta in preguntas %}
 	
-		{{pregunta.TEXTO}}<BR>
+		{{pregunta.TEXTO|raw}}<BR>
 		
 		<a href="/preguntas/borrar?ID={{pregunta.ID}}"><img width="32px" src="/img/borrar.png"></a>
 		<a href="/preguntas/editar?ID={{pregunta.ID}}"><img width="32px" src="/img/editar.png"></a><br>

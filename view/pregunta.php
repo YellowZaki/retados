@@ -36,7 +36,6 @@
 			
 <p style="text-align: left;">tags</p>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">    
     <link rel="stylesheet" href="/css/app.css">
     
@@ -66,25 +65,13 @@
 					</tr>
 				</thead>
 			<tbody style= "">					
-				<tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]"></td>
-				</tr>
 				
-				<tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]"></td>
+				 {% for respuesta in respuestas %}
+                <tr>
+					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" value="{{respuesta.TEXTO}}" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
+					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]" value="{{RESPUESTA.CORRECTA}}"></td>
 				</tr>
-				
-				<tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]"></td>
-				</tr>
-						
-				<tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]"></td>
-				</tr>
+{% endfor %}
 			
 				
 				
@@ -99,7 +86,7 @@
 			<button type="submit" class="btn btn-success">Aceptar</button>
 		</div>
         <div class="form-group col-md-1">
-			<a href="/alumnos/cancelar" class="btn btn-danger">Cancelar</a>
+			<a href="/preguntas" class="btn btn-danger">Cancelar</a>
 		</div>
 
 				

@@ -108,7 +108,7 @@ $app->get('/carlos', function () use ($app){
 	global $twig;
 		$respuestas=AccesoDatos::listar($app->db, "RESPUESTAS", "*", "id_pregunta=3");
 		$respuestas[0]['TEXTO']=$respuestas[0]['TEXTO']."<<<<";
-		Pregunta::guardarRespuestas($respuestas);
+		Pregunta::guardarRespuestas($respuestas, $idPregunta, $respuestaCorrecta);
 		
 		$app->redirect('/preguntas');
 		
@@ -203,9 +203,16 @@ $app->group('/preguntas', function() use ($app){
 		global $twig;
 
 
-		$datos=Pregunta::cargar($app->request()->get('ID'));
+		$id=$app->request()->get('ID');
 		
-		$valores=array('comentario'=>$datos);
+		$datos=Pregunta::cargar($id);
+		
+		// TODO quitar cuando se implemente correctamente Pregunta::cargar()
+		$respuestas=Respuesta::listar($id);
+		
+		$valores=array('comentario'=>$datos,
+					   'respuestas'=>$respuestas
+				);
 		echo $twig->render('pregunta.php',$valores);  
 		 	
 	}); 	
@@ -278,6 +285,21 @@ $app->group('/login', function () use ($app) {
 		}
 	}); 
 });
+
+$app->get('/toJSON', function() use ($app){
+	global $twig;
+	
+	$p=array("id"=>1, 
+			 "texto"=>"Cuestionario",
+			 "respuestas"=>array(
+					array("id"=>1, "texto"=>"respuesta 1.1"),
+					array("id"=>2, "texto"=>"respuesta 1.2"),
+					array("id"=>3, "texto"=>"respuesta 1.3"),
+					array("id"=>4, "texto"=>"respuesta 1.4")
+			   )
+	);
+	echo json_encode($p);
+}); 
 
 $app->get('/array', function() use ($app){
 	global $twig;
