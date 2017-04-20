@@ -69,7 +69,13 @@ class AccesoDatos{
 		
 		return $q->fetch(PDO::FETCH_ASSOC);
 	}
-		
+	
+	/* Elimina todas las entradas de la tabla $NOMBRETABLA que cumplan la condición indicada en $WHERE */
+	
+	public static function eliminar($pdo, $nombreTabla, $where=""){
+	
+	}
+	
 	public static function listar($pdo, $nombreTabla, $camposSelect="*", $where=""){
 		
 		if(trim($where)!="")
