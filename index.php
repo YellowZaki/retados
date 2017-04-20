@@ -122,17 +122,19 @@ $app->group('/respuestas', function() use ($app){
 		$app->get('/porTexto', function() use ($app){
 				global $twig;
 				
-				$valores=array(
-					"TEXTO"=>"borrame luego"
-				);
+				$valores=array();
 				
 				$valor=$app->request()->get('texto');
 			    $pdo=$app->db;
-				$q = $pdo->prepare("select * from preguntas where TEXTO like '%$valor%'");
+				/*$q = $pdo->prepare("select * from preguntas where TEXTO like '%$valor%'");
 		    	$q->execute($valores);
 				$r=$q->fetchAll(PDO::FETCH_ASSOC);
+			*/
 			
-				$texto="hola ".$app->request()->get('texto')."%$valor%";
+				$pdo=$valor->"PREGUNTAS"
+				
+				echo json_encode($r);
+				return;
 				
 				$valores=array('comentarios'=>$r);
 				echo $twig->render('preguntas.php',$valores);
@@ -189,6 +191,7 @@ $app->group('/preguntas', function() use ($app){
 				 */
 				 echo json_encode($rsdo);
 			});
+});
 			
   $app->get('/borrar', function() use ($app){
 		global $twig;
