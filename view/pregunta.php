@@ -64,7 +64,7 @@
 						
 					</tr>
 				</thead>
-			<tbody style= "">					
+			<tbody style= ".table-hover">					
 				
 				 {% for respuesta in respuestas %}
                 <tr>
