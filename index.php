@@ -126,13 +126,11 @@ $app->group('/respuestas', function() use ($app){
 				
 				$valor=$app->request()->get('texto');
 			    $pdo=$app->db;
-				/*$q = $pdo->prepare("select * from preguntas where TEXTO like '%$valor%'");
-		    	$q->execute($valores);
-				$r=$q->fetchAll(PDO::FETCH_ASSOC);
-			*/
-			
-				$pdo=$valor->"PREGUNTAS"
+				$q = $pdo->prepare("select * from preguntas where TEXTO like '%$valor%'");
 				
+				return $pdo->query("select $camposSelect from $nombreTabla $where")->fetchAll(PDO::FETCH_ASSOC);
+			
+			
 				echo json_encode($r);
 				return;
 				
