@@ -48,7 +48,7 @@ class Pregunta {
 	}
 	
 	
-	private static function guardarRespuestas($respuestas){
+	private static function guardarRespuestas($respuestas,$idPregunta, $respuestaCorrecta){
 		$app = \Slim\Slim::getInstance();
 		
 		foreach ($respuestas as $r){
