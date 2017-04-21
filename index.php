@@ -212,6 +212,9 @@ $app->group('/preguntas', function() use ($app){
 		$valores=array('comentario'=>$datos,
 					   'respuestas'=>$respuestas
 				);
+				
+		error_log("Pregunta/Respuesta a mostrar: ".json_encode($valores));
+		
 		echo $twig->render('pregunta.php',$valores);  
 		 	
 	}); 	
