@@ -13,6 +13,16 @@ class AccesoDatos{
 		$q->execute($valores);
 	}
 		
+	public static function eliminar($pdo, $nombreTabla, $where=""){
+		
+		if(trim($where)!="")
+			$where = "WHERE $where";
+		
+		$sql = "delete from $nombreTabla $where";
+		$q   = $pdo->prepare($sql);
+		$q->execute()
+	}
+	
 	/* Obtiene el nombre de los campos que componen $nombreTabla */
 	
 	public static function getCamposTabla($pdo, $nombreTabla, $ordenarCampos=false){
