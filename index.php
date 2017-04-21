@@ -268,6 +268,10 @@ $app->get('/logout', function () use ($app) {
 		Login::forzarLogOut();
 });
 
+$app->get('/etiquetas', function () use ($app) {
+		echo $twig->render('prueba.php'); 
+});
+
 $app->group('/login', function () use ($app) {
 	
 	$app->get('/', function() use ($app){

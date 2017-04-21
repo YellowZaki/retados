@@ -29,19 +29,19 @@
 					</tbody>
 				</thead>
 	</div>	
-{% for pregunta in preguntas %}
+	{% for pregunta in preguntas %}
 
-<div>
-	<tbody>
-<tr>
-	<td width="95%">Preguntas</td>
-	<td width="5%"><a href="/preguntas/borrar?ID={{pregunta.ID}}"><img width="32px" src="/img/borrar.png"></a>
-		<a href="/preguntas/editar?ID={{pregunta.ID}}"><img width="32px" src="/img/editar.png"></a><br></td>
-		
-</tr>
-{% endfor %}
-</tbody>
-</table>
+	<div>
+		<tbody>
+			<tr>
+				<td width="95%">Preguntas</td>
+				<td width="5%"><a href="/preguntas/borrar?ID={{pregunta.ID}}"><img width="32px" src="/img/borrar.png"></a>
+					<a href="/preguntas/editar?ID={{pregunta.ID}}"><img width="32px" src="/img/editar.png"></a><br></td>
+					
+			</tr>
+	{% endfor %}
+		</tbody>
+	</table>
 </div>
 
 {% endblock cuerpo %}
