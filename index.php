@@ -126,22 +126,17 @@ $app->group('/respuestas', function() use ($app){
 				
 				$valor=$app->request()->get('texto');
 			    $pdo=$app->db;
-				$q = $pdo->prepare("select * from preguntas where TEXTO like '%$valor%'");
-				
-				return $pdo->query("select $camposSelect from $nombreTabla $where")->fetchAll(PDO::FETCH_ASSOC);
+			    
+			    $p=AccesoDatos::listar($pdo,"preguntas","texto","TEXTO like '%$valor%'");
+			    
+			    // $pdo->query(select '/buscar' from "PREGUNTAS" $where TEXTO like '%$valor%')->fetchAll(PDO::FETCH_ASSOC
 			
-			
-				echo json_encode($r);
-				return;
-				
-				$valores=array('comentarios'=>$r);
-				echo $twig->render('preguntas.php',$valores);
+				return json_encode($p);
 				 
 			});
 			
 		});
 		
-
     $app->get('/', function() use ($app){
 		global $twig;
 		
