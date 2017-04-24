@@ -158,6 +158,11 @@ $app->group('/preguntas', function() use ($app){
 		global $twig;
 		$app->redirect('/preguntas');
 	});
+	
+	$app->get('/crear', function() use ($app){
+		global $twig;
+		$app->redirect('/preguntas');
+	});
 
 		
 	$app->get('/pdf', function() use ($app){
