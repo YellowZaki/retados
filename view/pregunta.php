@@ -64,19 +64,17 @@
 						
 					</tr>
 				</thead>
-			<tbody style= ".table-hover">					
-				
-				 {% for respuesta in respuestas %}
-                <tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" value="{{respuesta.TEXTO}}" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta" value="{{loop.index}}"></td>
-				</tr>
-{% endfor %}
-			
-				
-				
+				<tbody style= ".table-hover">					
 					
-		</tbody>
+					 {% for respuesta in respuestas %}
+					<tr>
+						<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" value="{{respuesta.TEXTO}}" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
+						<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta" value="{{loop.index}}"></td>
+					</tr>
+					{% endfor %}
+				
+						
+				</tbody>
 			</table>
 		</div>
 
