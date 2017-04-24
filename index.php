@@ -108,7 +108,7 @@ $app->get('/carlos', function () use ($app){
 	global $twig;
 		$respuestas=AccesoDatos::listar($app->db, "RESPUESTAS", "*", "id_pregunta=3");
 		$respuestas[0]['TEXTO']=$respuestas[0]['TEXTO']."<<<<";
-		Pregunta::guardarRespuestas($respuestas, $idPregunta, $respuestaCorrecta);
+		Pregunta::guardarRespuestas($idPregunta, $respuestaCorrecta, $respuestas );
 		
 		$app->redirect('/preguntas');
 		
@@ -155,6 +155,11 @@ $app->group('/respuestas', function() use ($app){
 
 $app->group('/preguntas', function() use ($app){
 	$app->get ('/cancelar', function() use ($app){
+		global $twig;
+		$app->redirect('/preguntas');
+	});
+	
+	$app->get('/crear', function() use ($app){
 		global $twig;
 		$app->redirect('/preguntas');
 	});
