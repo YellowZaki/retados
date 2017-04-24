@@ -231,6 +231,7 @@ $app->group('/preguntas', function() use ($app){
 	$app->post('/guardar', function() use ($app){
 		global $twig;
 		$valores=Utilidades::getDatosFormulario($app);
+		error_log("VIEW.PREGUNTA = ".json_encode($valores));
 		Pregunta::guardar($valores);
         $app->redirect('/preguntas');		
 	});

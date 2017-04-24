@@ -37,14 +37,17 @@ class Pregunta {
 		
 		$valorespregunta=array(
 			"ID"=>$guardar['id'],
-			"TEXTO"=>$guardar['pregunta']
+			"TEXTO"=>$guardar['texto'],
+			"ETIQUETAS"=>$guardar['etiquetas']
 		);
+		
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valorespregunta);
 		
 		// Guardamos las respuestas de la PREGUNTA
 		
 		unset($guardar['id']);
-		unset($guardar['pregunta']);
+		unset($guardar['texto']);
+		unset($guardar['etiquetas']);
 		
 		self::guardarRespuestas($guardar);
 	}
