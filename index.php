@@ -269,6 +269,7 @@ $app->get('/logout', function () use ($app) {
 });
 
 $app->get('/etiquetas', function () use ($app) {
+	global $twig;
 		echo $twig->render('prueba.php'); 
 });
 
