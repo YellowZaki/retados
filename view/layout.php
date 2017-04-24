@@ -129,5 +129,6 @@
 		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
 		<script src="/js/scripts.js"></script>
 		<script src="/js/jquery-qrcode-0.14.0.min.js"></script>
+		<script src="/js/bootstrap-tagsinput.js"></script>
 	</body>
 </html>

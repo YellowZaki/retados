@@ -12,7 +12,21 @@ class AccesoDatos{
 		$q   = $pdo->prepare($sql);
 		$q->execute($valores);
 	}
+	
+	/* Elimina todas las entradas de la tabla $NOMBRETABLA que cumplan la condición indicada en $WHERE */
+	
+	public static function eliminar($pdo, $nombreTabla, $where=""){
 		
+		error_log("Invocado un AccesoDatos::eliminar('$nombreTabla', '$where');");	
+		
+		if(trim($where)!="")
+			$where = "WHERE $where";
+		
+		$sql = "delete from $nombreTabla $where";
+		$q   = $pdo->prepare($sql);
+		$q->execute();
+	}
+	
 	/* Obtiene el nombre de los campos que componen $nombreTabla */
 	
 	public static function getCamposTabla($pdo, $nombreTabla, $ordenarCampos=false){
@@ -68,12 +82,6 @@ class AccesoDatos{
 		$q->execute();
 		
 		return $q->fetch(PDO::FETCH_ASSOC);
-	}
-	
-	/* Elimina todas las entradas de la tabla $NOMBRETABLA que cumplan la condición indicada en $WHERE */
-	
-	public static function eliminar($pdo, $nombreTabla, $where=""){
-		error_log("Invocado un AccesoDatos::eliminar($nombreTabla, $where);");
 	}
 	
 	public static function listar($pdo, $nombreTabla, $camposSelect="*", $where=""){
