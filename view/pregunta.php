@@ -4,6 +4,9 @@
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
 	<!--<link rel="stylesheet" type="text/css" href="/css/component.css" />-->
 	<script src="/js/modernizr.custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-tagsinput.css" />
+	<script src="/js/modernizr.custom.js"></script>
 {% endblock cabecera %}
 
 {% block cuerpo %}
@@ -34,25 +37,11 @@
 		
 		<div class="form-group col-md-10">
 			
-<p style="text-align: left;">tags</p>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">    
-    <link rel="stylesheet" href="/css/app.css">
-    
-    <div class="example example_typeahead">
-		
-        <div class="bs-docs-example" style ="text-align: left;">
-          <input type="text" value="" name="etiquetas"/>
+   <div class="form-group">
+        <label class="col-lg-3 control-label">TAGS</label>
+        <div class="col-lg-5">
+            <input type="text" name="cities" id="aa" class="form-control" value="" data-role="tagsinput" />
         </div>
-        
-	</div>
-	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-tagsinput.min.js"></script>
-    <script src="/js/bootstrap-tagsinput-angular.min.js"></script>
-    <script src="/js/app_bs2.js"></script>
-    
     </div>
     
 		<div class="form-group col-md-12">
