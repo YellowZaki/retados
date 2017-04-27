@@ -201,20 +201,13 @@ $app->group('/preguntas', function() use ($app){
 	$app->get('/editar', function() use ($app){
 		global $twig;
 
-
 		$id=$app->request()->get('ID');
-		
 		$datos=Pregunta::cargar($id);
 		
-		// TODO quitar cuando se implemente correctamente Pregunta::cargar()
-		$respuestas=Respuesta::listar($id);
-		
-		$valores=array('comentario'=>$datos,
-					   'respuestas'=>$respuestas
-				);
+		$valores=array(
+			'pregunta'=>$datos
+		);
 				
-		error_log("Pregunta/Respuesta a mostrar: ".json_encode($valores));
-		
 		echo $twig->render('pregunta.php',$valores);  
 		 	
 	}); 	
