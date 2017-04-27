@@ -268,6 +268,10 @@ $app->get('/about', function() use ($app){
 $app->get('/logout', function () use ($app) {
 		Login::forzarLogOut();
 });
+$app->get('/fran', function () use ($app) {
+		Pregunta::cargar(1);
+        echo "ya he terminado";
+});
 
 $app->get('/etiquetas', function () use ($app) {
 	global $twig;
