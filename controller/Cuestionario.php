@@ -9,9 +9,14 @@ class Cuestionario {
 	}
 	
 	public static function toJSON($preguntas){
-	    $p Pregunta::generar (4)
+		$rsdo="{";
+		
+	    /*$p Pregunta::generar (4)
 		echo json_encode($p)
-}
+		*/
+		
+		return $rsdo +"}";
+	}
 
 
 ?>
