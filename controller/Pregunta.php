@@ -10,11 +10,14 @@ class Pregunta {
 	public static function cargar($id){
 		$app = \Slim\Slim::getInstance();
 		$p=AccesoDatos::recuperar($app->db, "PREGUNTAS", $id);
-		error_log("Pregunta: ".json_encode($p));
-		return $p;
-		
+        $r=Respuesta::listar($id);
+		/*error_log("Pregunta: ".json_encode($p));
+        error_log("Respuestas: ".json_encode(Respuesta::listar($id)));*/
+        $p["Respuestas"]=$r;
+return $p;
+
 	}
-	
+    	
 	public static function eliminar($id){
 		$app = \Slim\Slim::getInstance();
 		AccesoDatos::borrar($app->db,"PREGUNTAS", $id);
