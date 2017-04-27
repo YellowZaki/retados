@@ -1,0 +1,2 @@
+create view etiquetasContador as
+select *, (select count(*) from preguntas where etiquetas like "%" || e.texto || " %" or etiquetas like e.texto || " %" or etiquetas like "%" || e.texto ) NUM_USOS from etiquetas e;

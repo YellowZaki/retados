@@ -14,7 +14,34 @@ class Respuesta {
 	
 	public static function listar($idPregunta){
 		$app = \Slim\Slim::getInstance();
-	    return AccesoDatos::listar($app->db, "RESPUESTAS", "*", "ID_PREGUNTA=$idPregunta");
+
+	    $r=AccesoDatos::listar($app->db, "RESPUESTAS", "*", "ID_PREGUNTA=$idPregunta");
+	    if(!$r)
+			$r=self::getRespuestasVacias(4);
+
+		return $r;
+	}
+	
+	/* Genera un array de RESPUESTAS vacías para que la edición de PREGUNTA	
+	 * tenga datos que mostrar y el usuario pueda rellenarlo 
+	 */
+	 
+	 // IDEA obtener la estructura de la tabla lanzando SQL evitaría tener
+	 // que cambiar este fragmento de código si decidimos cambiar la estructura
+	 // de la tabla RESPUESTA en algún momento
+	 
+	private static function getRespuestasVacias($numRespuestas){
+		
+		$r=array();
+		
+		for ($i = 0; $i < $numRespuestas; $i++) {
+			// Por defecto suponemos que la respuesta es INCORRECTA
+			$r=array_merge($r, array(array("ID"=>"", "ID_PREGUNTA"=>"", "TEXTO"=>"","CORRECTA"=>"0")));
+			//$r[i]=array("p"=>$i);
+		}
+		
+		return $r;
+	
 	}
 
 	
