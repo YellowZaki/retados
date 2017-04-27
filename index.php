@@ -158,7 +158,7 @@ $app->group('/preguntas', function() use ($app){
 	
 	$app->get('/crear', function() use ($app){
 		global $twig;
-		$app->redirect('/preguntas');
+		echo $twig->render('pregunta.php');
 	});
 
 		
