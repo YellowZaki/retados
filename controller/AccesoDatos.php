@@ -75,6 +75,7 @@ class AccesoDatos{
 	
 	
     public static function buscar($pdo, $nombreTabla, $camposSelect="*", $where=""){
+		
         if(trim($where)!="")
 			$where = "WHERE $where";
                         

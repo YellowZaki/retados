@@ -28,7 +28,7 @@
 		<div class="form-group col-md-12">
 			
 			<label for="texto">Pregunta:</label>
-			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="pregunta" >{{comentario.TEXTO}}</textarea>
+			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="texto" name="texto" >{{comentario.TEXTO}}</textarea>
 
 		</div>
 		
@@ -42,7 +42,7 @@
     <div class="example example_typeahead">
 		
         <div class="bs-docs-example" style ="text-align: left;">
-          <input type="text" value="" />
+          <input type="text" value="" name="etiquetas"/>
         </div>
         
 	</div>
@@ -68,8 +68,10 @@
 					
 					 {% for respuesta in respuestas %}
 					<tr>
+
 						<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" value="{{respuesta.TEXTO}}" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
 						<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta" value="{{loop.index}}" {{respuesta.CORRECTA==1 ? "checked" : ""}} ></td>
+
 					</tr>
 					{% endfor %}
 				

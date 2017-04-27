@@ -108,7 +108,7 @@ $app->get('/carlos', function () use ($app){
 	global $twig;
 		$respuestas=AccesoDatos::listar($app->db, "RESPUESTAS", "*", "id_pregunta=3");
 		$respuestas[0]['TEXTO']=$respuestas[0]['TEXTO']."<<<<";
-		Pregunta::guardarRespuestas($respuestas, $idPregunta, $respuestaCorrecta);
+		Pregunta::guardarRespuestas($idPregunta, $respuestaCorrecta, $respuestas );
 		
 		$app->redirect('/preguntas');
 		
@@ -122,25 +122,22 @@ $app->group('/respuestas', function() use ($app){
 		$app->get('/porTexto', function() use ($app){
 				global $twig;
 				
-				$valores=array(
-					"TEXTO"=>$app->request()->get('texto')
-				);
+				$valores=array();
 				
+				$valor=$app->request()->get('texto');
 			    $pdo=$app->db;
-				 $q = $pdo->prepare("select * from preguntas where TEXTO like '%xxx%'");
-		    	 $q->execute($valores);
-				 $r=$q->fetchAll(PDO::FETCH_ASSOC);
+			    
+			    $p=AccesoDatos::listar($pdo,"preguntas","texto","TEXTO like '%$valor%'");
+			    
+			    // $pdo->query(select '/buscar' from "PREGUNTAS" $where TEXTO like '%$valor%')->fetchAll(PDO::FETCH_ASSOC
 			
-				$texto="hola ".$app->request()->get('texto')."%xxx%";
-				
-				$valores=array('comentarios'=>$r);
-				echo $twig->render('preguntas.php',$valores);
+				return json_encode($p);
 				 
 			});
 			
 		});
 		
-
+		
     $app->get('/', function() use ($app){
 		global $twig;
 		
@@ -155,6 +152,11 @@ $app->group('/respuestas', function() use ($app){
 
 $app->group('/preguntas', function() use ($app){
 	$app->get ('/cancelar', function() use ($app){
+		global $twig;
+		$app->redirect('/preguntas');
+	});
+	
+	$app->get('/crear', function() use ($app){
 		global $twig;
 		$app->redirect('/preguntas');
 	});
@@ -176,21 +178,19 @@ $app->group('/preguntas', function() use ($app){
 				global $twig;
 				
 				$valores=array(
-					"valores"=>$app->request()->get('valor')
+					"id_preguntas"=>$app->request()->get('lc')
 				);
 				
-			   /* $pdo=$app->db;
-				* $q = $pdo->prepare("select * from partes where id_alumno=:id_alumno");
-		    	* $q->execute($valores);
-				* $r=$q->fetchAll(PDO::FETCH_ASSOC);
-			*/
-				
-				$valores=array('comentarios'=>$r);
-				echo $twig->render('partes.php',$valores);
-				 
-			});
+				$pdo=$app->db;
+				$rsdo=$AccesoDatos::listar($pdo, "preguntas","texto","texto like '% %' ");
 			
-		});
+				
+				/*$valores=array('comentarios'=>$r);
+				echo $twig->render('Pregunta.php',$valores);  
+				 */
+				 echo json_encode($rsdo);
+			});
+});
 			
   $app->get('/borrar', function() use ($app){
 		global $twig;
@@ -231,10 +231,11 @@ $app->group('/preguntas', function() use ($app){
 	$app->post('/guardar', function() use ($app){
 		global $twig;
 		$valores=Utilidades::getDatosFormulario($app);
+		error_log("VIEW.PREGUNTA = ".json_encode($valores));
 		Pregunta::guardar($valores);
         $app->redirect('/preguntas');		
 	});
-	
+		
 });
 /*
  * Este bloque irá fuera tan pronto tengamos el primer formulario operativo
@@ -269,6 +270,7 @@ $app->get('/logout', function () use ($app) {
 });
 
 $app->get('/etiquetas', function () use ($app) {
+	global $twig;
 		echo $twig->render('prueba.php'); 
 });
 
