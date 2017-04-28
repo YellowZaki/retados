@@ -74,7 +74,7 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav nav-justified">
           <li><a href="/">Inicio</a></li>
-          <li><a target="_blank" href="http://semillerodeempresas.blogspot.com.es/search/label/%7BReta2%7D">Novedades</a></li>
+          <li><a target="_blank" href="http://semillerodeempresas.blogspot.com.es/search/label/Ret%7BA2%7D">Novedades</a></li>
           <li><a href="/preguntas">Preguntas</a></li>
           <li class="active"><a href="/about"><strong>Acerca de</strong></a></li>
           <li class="dropdown">
