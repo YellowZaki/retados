@@ -303,7 +303,8 @@ $app->get('/toJSON', function() use ($app){
 					array("id"=>4, "texto"=>"respuesta 1.4")
 			   )
 	);
-	echo json_encode($p);
+	
+	echo json_encode(Cuestionario::toJSON($p));
 }); 
 
 $app->get('/array', function() use ($app){

@@ -11,12 +11,14 @@ class Cuestionario {
 	public static function toJSON($preguntas){
 		$rsdo="{";
 		
-	    /*$p Pregunta::generar (4)
-		echo json_encode($p)
-		*/
-		
-		return $rsdo +"}";
+	foreach ($preguntas as $p){
+			$rsdo=$rsdo.Pregunta::guardar($p);
 	}
+	$rsdo=$rsdo."}"
+	
+	return $rsdo;
+	
+}
 
 
 ?>
