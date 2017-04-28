@@ -147,7 +147,10 @@ $app->group('/respuestas', function() use ($app){
 		echo $twig->render('preguntas.php',$valores);  
 	}); 
 }); 
-
+$app->get('/quiz', function() use ($app){
+		global $twig;
+		echo $twig->render('quiz.php');
+	});
 
 
 $app->group('/preguntas', function() use ($app){
