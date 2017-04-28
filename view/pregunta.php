@@ -4,6 +4,9 @@
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
 	<!--<link rel="stylesheet" type="text/css" href="/css/component.css" />-->
 	<script src="/js/modernizr.custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-tagsinput.css" />
+	<script src="/js/modernizr.custom.js"></script>
 {% endblock cabecera %}
 
 {% block cuerpo %}
@@ -22,37 +25,21 @@
 
 <form method="post" action="/preguntas/guardar" role="form">
 		
-		<input type="hidden" name="id" value="{{comentario.ID}}"/>
+		<input type="hidden" name="id" value="{{pregunta.ID}}"/>
 		
 		
 		<div class="form-group col-md-12">
-			
 			<label for="texto">Pregunta:</label>
-			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="comentario" name="pregunta" >{{comentario.TEXTO}}</textarea>
-
+			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="texto" name="texto" >{{pregunta.TEXTO}}</textarea>
 		</div>
 		
 		<div class="form-group col-md-10">
 			
-<p style="text-align: left;">tags</p>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">    
-    <link rel="stylesheet" href="/css/app.css">
-    
-    <div class="example example_typeahead">
-		
-        <div class="bs-docs-example" style ="text-align: left;">
-          <input type="text" value="" />
+   <div class="form-group">
+        <label class="col-lg-3 control-label">TAGS</label>
+        <div class="col-lg-5">
+            <input type="text" name="cities" id="aa" class="form-control" value="{{pregunta.ETIQUETAS}}" data-role="tagsinput" />
         </div>
-        
-	</div>
-	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-tagsinput.min.js"></script>
-    <script src="/js/bootstrap-tagsinput-angular.min.js"></script>
-    <script src="/js/app_bs2.js"></script>
-    
     </div>
     
 		<div class="form-group col-md-12">
@@ -64,31 +51,19 @@
 						
 					</tr>
 				</thead>
-			<tbody style= "">					
-				<tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]"></td>
-				</tr>
-				
-				<tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]"></td>
-				</tr>
-				
-				<tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]"></td>
-				</tr>
-						
-				<tr>
-					<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
-					<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta[]"></td>
-				</tr>
-			
-				
-				
+				<tbody style= ".table-hover">					
 					
-		</tbody>
+					 {% for respuesta in pregunta.respuestas %}
+					<tr>
+
+						<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" value="{{respuesta.TEXTO}}" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>
+						<td style="text-align: center; vertical-align: middle; "><input class="case" type="radio" name="correcta" value="{{loop.index}}" {{respuesta.CORRECTA==1 ? "checked" : ""}} ></td>
+
+					</tr>
+					{% endfor %}
+				
+						
+				</tbody>
 			</table>
 		</div>
 
@@ -98,7 +73,7 @@
 			<button type="submit" class="btn btn-success">Aceptar</button>
 		</div>
         <div class="form-group col-md-1">
-			<a href="/alumnos/cancelar" class="btn btn-danger">Cancelar</a>
+			<a href="/preguntas" class="btn btn-danger">Cancelar</a>
 		</div>
 
 				

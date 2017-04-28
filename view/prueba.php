@@ -2,7 +2,9 @@
 
 {% block cabecera %}
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-tagsinput.css" />
 	<script src="/js/modernizr.custom.js"></script>
+	
 {% endblock cabecera %}
 
 {% block cuerpo %}
@@ -20,29 +22,13 @@
 	<p class="lead">Formulario para poder interactuar con datos introducidos por el usuario</p>
 </div>
 
-<form method="post" action="/prueba/guardar" role="form">
-		
-		<input type="hidden" name="id" value="{{comentario.ID}}"/>
-		
-		<div class="row">
-			<div class="form-group col-md-12">
-				<label for="texto">Pregunta:</label>
-				<textarea style="width:100%" rows="8" cols="50" class="form-control" id="texto" name="texto"></textarea>
-			</div>
-		</div>
-		
-		<!-- Botonera del final -->
-		
-		<div class="form-group col-md-10"></div>
-		
-		<div class="form-group col-md-1">
-			<button type="submit" class="btn btn-success">Aceptar</button>
-		</div>
-        <div class="form-group col-md-1">
-			<a href="/alumnos/cancelar" class="btn btn-danger">Cancelar</a>
-		</div>
-
-</form>
-
+   <div class="form-group">
+        <label class="col-lg-3 control-label">Cities</label>
+        <div class="col-lg-5">
+            <input type="text" name="cities" id="aa" class="form-control" value="" data-role="tagsinput" />
+        </div>
+    </div>
+    
+    
 {% endblock cuerpo %}
 

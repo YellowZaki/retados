@@ -17,12 +17,21 @@ class Pregunta {
 	
 	public static function cargar($id){
 		$app = \Slim\Slim::getInstance();
-		return AccesoDatos::recuperar($app->db, "PREGUNTAS", $id);
+		$p=AccesoDatos::recuperar($app->db, "PREGUNTAS", $id);
+		$p["respuestas"]=Respuesta::listar($id);
+		error_log("Pregunta: ".json_encode($p));
+		return $p;
 	}
-	
+    	
 	public static function eliminar($id){
 		$app = \Slim\Slim::getInstance();
 		AccesoDatos::borrar($app->db,"PREGUNTAS", $id);
+	} 
+	
+	private static function eliminarRespuestas($idPregunta){
+		$app = \Slim\Slim::getInstance();
+		AccesoDatos::eliminar($app->db,"RESPUESTAS","ID_PREGUNTA=$idPregunta");
+		
 	}
 
 	public static function guardar($guardar){
@@ -34,21 +43,24 @@ class Pregunta {
 		$app = \Slim\Slim::getInstance();
 		
 		$valorespregunta=array(
-			"id"=>$guardar['id'],
-			"texto"=>$guardar['pregunta']
+			"ID"=>$guardar['id'],
+			"TEXTO"=>$guardar['texto'],
+			"ETIQUETAS"=>$guardar['etiquetas']
 		);
+		
 		AccesoDatos::guardar($app->db,"PREGUNTAS", $valorespregunta);
 		
 		// Guardamos las respuestas de la PREGUNTA
 		
 		unset($guardar['id']);
-		unset($guardar['pregunta']);
+		unset($guardar['texto']);
+		unset($guardar['etiquetas']);
 		
 		self::guardarRespuestas($guardar);
 	}
 	
 	
-	private static function guardarRespuestas($respuestas){
+	private static function guardarRespuestas($idPregunta, $respuestaCorrecta, $respuestas){
 		$app = \Slim\Slim::getInstance();
 		
 		foreach ($respuestas as $r){
