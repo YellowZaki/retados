@@ -274,6 +274,10 @@ $app->get('/etiquetas', function () use ($app) {
 		echo $twig->render('prueba.php'); 
 });
 
+$app->get('/sorteo', function () use ($app) {
+		Pregunta::sortear(3);
+});
+
 $app->group('/login', function () use ($app) {
 	
 	$app->get('/', function() use ($app){
@@ -306,7 +310,8 @@ $app->get('/toJSON', function() use ($app){
 					array("id"=>4, "texto"=>"respuesta 1.4")
 			   )
 	);
-	echo json_encode($p);
+	
+	echo json_encode(Cuestionario::toJSON($p));
 }); 
 
 $app->get('/array', function() use ($app){

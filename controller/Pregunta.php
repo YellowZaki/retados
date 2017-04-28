@@ -4,7 +4,15 @@ class Pregunta {
 
 	public static function sortear($numPreguntas){
 		$app = \Slim\Slim::getInstance();
-		return AccesoDatos::listar($app->db, "PREGUNTAS", "texto", "1=1 order by random() limit $numPreguntas");
+		$preguntas=AccesoDatos::listar($app->db, "PREGUNTAS", "id, texto", "1=1 order by random() limit $numPreguntas");
+		error_log("Hasta aquí vamos bien");
+		foreach($preguntas as $p){
+			error_log("Pregunta: ".json_encode($p));
+			error_log("Debemos recuperar las respuestas de la pregunta ID=".$p["ID"]);
+			$resp= Respuesta::sortear($p["ID"]); //["ID"];
+			error_log("Las respuestas de la pregunta ".$p["ID"]." son: ".json_encode($resp));
+		}
+		
 	}
 	
 	public static function cargar($id){
