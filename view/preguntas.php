@@ -12,10 +12,16 @@
 	<div class="alert alert-error" role="alert"> {{ error|raw}}</div>
 {% endif %}
 
+
 <div class="jumbotron">
 	<h1>Preguntas registradas</h1>
 	<p class="lead">Listado de preguntas</p>
 </div>
+
+<button type="button" href="#" class="btn btn-warning""glyphicon">
+	        <span class="glyphicon glyphicon-plus"></span> Nueva Pregunta 
+        </button>
+
 
 {% for pregunta in preguntas %}
 	
@@ -24,6 +30,7 @@
 		<a href="/preguntas/borrar?ID={{pregunta.ID}}"><img width="32px" src="/img/borrar.png"></a>
 		<a href="/preguntas/editar?ID={{pregunta.ID}}"><img width="32px" src="/img/editar.png"></a><br>
 		----------------<br>
+		
 {% endfor %}
 	
 {% endblock cuerpo %}

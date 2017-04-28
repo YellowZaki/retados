@@ -258,6 +258,10 @@ $app->get('/logout', function () use ($app) {
 		Login::forzarLogOut();
 });
 
+$app->get('/sorteo', function () use ($app) {
+		Pregunta::sortear(3);
+});
+
 $app->group('/login', function () use ($app) {
 	
 	$app->get('/', function() use ($app){
