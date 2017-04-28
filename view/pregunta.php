@@ -6,7 +6,6 @@
 	<script src="/js/modernizr.custom.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap-tagsinput.css" />
-	<script src="/js/modernizr.custom.js"></script>
 {% endblock cabecera %}
 
 {% block cuerpo %}
@@ -28,21 +27,26 @@
 		<input type="hidden" name="id" value="{{comentario.ID}}"/>
 		
 		
-		<div class="form-group col-md-12">
+		<div class="form-group col-md-12" style="width:80%">
 			
 			<label for="texto">Pregunta:</label>
 			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="texto" name="texto" >{{comentario.TEXTO}}</textarea>
 
 		</div>
 		
-		<div class="form-group col-md-10">
-			
-   <div class="form-group">
-        <label class="col-lg-3 control-label">TAGS</label>
-        <div class="col-lg-5">
+   <div class="form-group" style="float:right;margin-top:-290px;width:21%;">
+        <label style="margin-left:20px;float:left;">TAGS</label>
+        <br>
+        <div style="margin-left:20px;float:left;display: inline-block;margin-bottom: 5px;max-width: 100%;font-weight: 700;">
             <input type="text" name="cities" id="aa" class="form-control" value="" data-role="tagsinput" />
         </div>
-    </div>
+    </div>		
+		
+		
+		
+		<div class="form-group col-md-10">
+			
+
     
 		<div class="form-group col-md-12">
 			<table class="table table-bordered table-hover" id="invoiceTable">				
