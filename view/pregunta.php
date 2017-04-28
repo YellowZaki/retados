@@ -24,14 +24,12 @@
 
 <form method="post" action="/preguntas/guardar" role="form">
 		
-		<input type="hidden" name="id" value="{{comentario.ID}}"/>
+		<input type="hidden" name="id" value="{{pregunta.ID}}"/>
 		
 		
 		<div class="form-group col-md-12" style="width:80%">
-			
 			<label for="texto">Pregunta:</label>
-			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="texto" name="texto" >{{comentario.TEXTO}}</textarea>
-
+			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="texto" name="texto" >{{pregunta.TEXTO}}</textarea>
 		</div>
 		
    <div class="form-group" style="float:right;margin-top:-290px;width:21%;">
@@ -59,7 +57,7 @@
 				</thead>
 				<tbody style= ".table-hover">					
 					
-					 {% for respuesta in respuestas %}
+					 {% for respuesta in pregunta.respuestas %}
 					<tr>
 
 						<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" value="{{respuesta.TEXTO}}" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>

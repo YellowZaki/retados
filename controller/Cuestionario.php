@@ -9,8 +9,15 @@ class Cuestionario {
 	}
 	
 	public static function toJSON($preguntas){
-	    $p Pregunta::generar (4)
-		echo json_encode($p)
+		$rsdo="{";
+		
+	foreach ($preguntas as $p){
+			$rsdo=$rsdo.Pregunta::guardar($p);
+	}
+	$rsdo=$rsdo."}"
+	
+	return $rsdo;
+	
 }
 
 
