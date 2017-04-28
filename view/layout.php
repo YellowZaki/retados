@@ -75,13 +75,12 @@
         <ul class="nav navbar-nav nav-justified">
           <li><a href="/">Inicio</a></li>
           <li><a target="_blank" href="http://semillerodeempresas.blogspot.com.es/search/label/Ret%7BA2%7D">Novedades</a></li>
-          <li><a href="/preguntas">Preguntas</a></li>
           <li class="active"><a href="/about"><strong>Acerca de</strong></a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi perfil<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="/usuario/config">Configurar</a></li>
-              <li><a href="/usuario/preguntas">Mis preguntas</a></li>
+              <li><a href="/preguntas">Mis preguntas</a></li>
               <li><a href="/usuario/grupos">Grupos</a></li>
               <li><a href="/logout">Salir</a></li>
             </ul>
