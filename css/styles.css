@@ -85,7 +85,9 @@ header .dropdown-menu {
   background: #ffcc33;
   border-width:0;
 }
-
+table thead tr {
+  background: #87CEEB;
+}
 h1 {
   font-size:50px;
 }
