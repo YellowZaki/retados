@@ -32,7 +32,7 @@
 			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="texto" name="texto" >{{pregunta.TEXTO}}</textarea>
 		</div>
 		
-   <div class="form-group" style="float:right;margin-top:-290px;width:21%;">
+   <div class="form-group" style="float:right;margin-top:-328px;width:21%;">
         <label style="margin-left:20px;float:left;">TAGS</label>
         <br>
         <div style="margin-left:20px;float:left;display: inline-block;margin-bottom: 5px;max-width: 100%;font-weight: 700;">
