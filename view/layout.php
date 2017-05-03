@@ -81,8 +81,18 @@
           <li><a href="/">Inicio</a></li>
           <li><a target="_blank" href="http://semillerodeempresas.blogspot.com.es/search/label/Ret%7BA2%7D">Novedades</a></li>
           <li class="active"><a href="/about"><strong>Acerca de</strong></a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi perfil<b class="caret"></b></a>
+{% if login.isLogged() %}
+								<li><a href="/logout"><span class="social fa fa-sign-out"></span>Log out</a></li>
+                                <li class="dropdown">
+                                </ul>
+                                </div><!--/.nav-collapse -->
+                                </div><!--/-container -->
+                                </div><!--/.navbar-->
+                                <!-- Begin page content -->
+                                <div class="divider" id="section1"></div>
+							{% else %}
+								<li><a href="/login"><span href></span>Log in</a></li>
+{% endif %}
             <ul class="dropdown-menu">
               <li><a href="/usuario/config">Configurar</a></li>
               <li><a href="/preguntas">Mis preguntas</a></li>

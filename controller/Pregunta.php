@@ -18,7 +18,7 @@ class Pregunta {
 	public static function cargar($id){
 		$app = \Slim\Slim::getInstance();
 		$p=AccesoDatos::recuperar($app->db, "PREGUNTAS", $id);
-		$p["respuestas"]=Respuesta::listar($id);
+		$p["RESPUESTAS"]=Respuesta::listar($id);
 		error_log("Pregunta: ".json_encode($p));
 		return $p;
 	}
