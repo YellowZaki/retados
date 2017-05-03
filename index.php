@@ -164,10 +164,11 @@ $app->group('/preguntas', function() use ($app){
 				$valor=$app->request()->get('texto');
 			    $pdo=$app->db;
 			    
-			    $p=AccesoDatos::listar($pdo,"PREGUNTAS","texto","texto like '%".$app->request()->get('valor')."%'");
+			    error_log("La SQL será "."texto like '%".$app->request()->get('texto')."%'");
+			    $p=AccesoDatos::listar($pdo,"PREGUNTAS","texto","texto like '%".$app->request()->get('texto')."%'");
 			    
 			    // $pdo->query(select '/buscar' from "PREGUNTAS" $where TEXTO like '%$valor%')->fetchAll(PDO::FETCH_ASSOC
-			
+				error_log(json_encode($p));
 				return json_encode($p);
 				 
 			});
