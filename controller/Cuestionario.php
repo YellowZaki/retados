@@ -14,7 +14,7 @@ class Cuestionario {
 	foreach ($preguntas as $p){
 			$rsdo=$rsdo.Pregunta::guardar($p);
 	}
-	$rsdo=$rsdo."}"
+	$rsdo=$rsdo."}";
 	
 	return $rsdo;
 	

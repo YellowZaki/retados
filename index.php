@@ -298,7 +298,7 @@ $app->group('/login', function () use ($app) {
 	}); 
 });
 
-$app->get('/toJSON', function() use ($app){
+$app->get('/cuestionario', function() use ($app){
 	global $twig;
 	
 	$p=array("id"=>1, 
@@ -311,7 +311,7 @@ $app->get('/toJSON', function() use ($app){
 			   )
 	);
 	
-	echo json_encode(Cuestionario::toJSON($p));
+	echo json_encode($p);
 }); 
 
 $app->get('/array', function() use ($app){
