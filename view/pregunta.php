@@ -4,6 +4,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
 	<!--<link rel="stylesheet" type="text/css" href="/css/component.css" />-->
 	<script src="/js/modernizr.custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-tagsinput.css" />
 {% endblock cabecera %}
 
 {% block cuerpo %}
@@ -22,38 +24,27 @@
 
 <form method="post" action="/preguntas/guardar" role="form">
 		
-		<input type="hidden" name="id" value="{{comentario.ID}}"/>
+		<input type="hidden" name="id" value="{{pregunta.ID}}"/>
 		
 		
-		<div class="form-group col-md-12">
-			
+		<div class="form-group col-md-12" style="width:80%">
 			<label for="texto">Pregunta:</label>
-			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="texto" name="texto" >{{comentario.TEXTO}}</textarea>
-
+			<textarea style="width:100%" rows="8" cols="50" class="form-control" id="texto" name="texto" >{{pregunta.TEXTO}}</textarea>
 		</div>
+		
+   <div class="form-group" style="float:right;margin-top:-290px;width:21%;">
+        <label style="margin-left:20px;float:left;">TAGS</label>
+        <br>
+        <div style="margin-left:20px;float:left;display: inline-block;margin-bottom: 5px;max-width: 100%;font-weight: 700;">
+            <input type="text" name="cities" id="aa" class="form-control" value="" data-role="tagsinput" />
+        </div>
+    </div>		
+		
+		
 		
 		<div class="form-group col-md-10">
 			
-<p style="text-align: left;">tags</p>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">    
-    <link rel="stylesheet" href="/css/app.css">
-    
-    <div class="example example_typeahead">
-		
-        <div class="bs-docs-example" style ="text-align: left;">
-          <input type="text" value="" name="etiquetas"/>
-        </div>
-        
-	</div>
-	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-tagsinput.min.js"></script>
-    <script src="/js/bootstrap-tagsinput-angular.min.js"></script>
-    <script src="/js/app_bs2.js"></script>
-    
-    </div>
     
 		<div class="form-group col-md-12">
 			<table class="table table-bordered table-hover" id="invoiceTable">				
@@ -66,7 +57,7 @@
 				</thead>
 				<tbody style= ".table-hover">					
 					
-					 {% for respuesta in respuestas %}
+					 {% for respuesta in pregunta.respuestas %}
 					<tr>
 
 						<td><input data-type="productCode" name="respuesta[]" id="itemNo_7" value="{{respuesta.TEXTO}}" class="form-control autocomplete_txt ui-autocomplete-input" autocomplete="off" type="text"></td>

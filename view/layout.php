@@ -17,6 +17,11 @@
 		<![endif]-->
 		<link href="/css/styles.css" rel="stylesheet">
 		<link href="/css/bootstrap.css" rel="stylesheet">
+		 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/sweet-alert.css">
+  <link rel="stylesheet" href="/css/quiz.css">
 	</head>
 	<body>
 		
@@ -74,14 +79,13 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav nav-justified">
           <li><a href="/">Inicio</a></li>
-          <li><a target="_blank" href="http://semillerodeempresas.blogspot.com.es/search/label/%7BReta2%7D">Novedades</a></li>
-          <li><a href="/preguntas">Preguntas</a></li>
+          <li><a target="_blank" href="http://semillerodeempresas.blogspot.com.es/search/label/Ret%7BA2%7D">Novedades</a></li>
           <li class="active"><a href="/about"><strong>Acerca de</strong></a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi perfil<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="/usuario/config">Configurar</a></li>
-              <li><a href="/usuario/preguntas">Mis preguntas</a></li>
+              <li><a href="/preguntas">Mis preguntas</a></li>
               <li><a href="/usuario/grupos">Grupos</a></li>
               <li><a href="/logout">Salir</a></li>
             </ul>
@@ -130,5 +134,9 @@
 		<script src="/js/scripts.js"></script>
 		<script src="/js/jquery-qrcode-0.14.0.min.js"></script>
 		<script src="/js/bootstrap-tagsinput.js"></script>
+		 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="/js/sweet-alert.min.js"></script>
+		<script src="/js/quiz.js"></script>
 	</body>
 </html>

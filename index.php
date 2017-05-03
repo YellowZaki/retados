@@ -126,7 +126,10 @@ $app->group('/respuestas', function() use ($app){
 		echo $twig->render('preguntas.php',$valores);  
 	}); 
 }); 
-
+$app->get('/quiz', function() use ($app){
+		global $twig;
+		echo $twig->render('quiz.php');
+	});
 
 
 $app->group('/preguntas', function() use ($app){
@@ -179,20 +182,13 @@ $app->group('/preguntas', function() use ($app){
 	$app->get('/editar', function() use ($app){
 		global $twig;
 
-
 		$id=$app->request()->get('ID');
-		
 		$datos=Pregunta::cargar($id);
 		
-		// TODO quitar cuando se implemente correctamente Pregunta::cargar()
-		$respuestas=Respuesta::listar($id);
-		
-		$valores=array('comentario'=>$datos,
-					   'respuestas'=>$respuestas
-				);
+		$valores=array(
+			'pregunta'=>$datos
+		);
 				
-		error_log("Pregunta/Respuesta a mostrar: ".json_encode($valores));
-		
 		echo $twig->render('pregunta.php',$valores);  
 		 	
 	}); 	
@@ -246,10 +242,18 @@ $app->get('/about', function() use ($app){
 $app->get('/logout', function () use ($app) {
 		Login::forzarLogOut();
 });
+$app->get('/fran', function () use ($app) {
+		Pregunta::cargar(1);
+        echo "ya he terminado";
+});
 
 $app->get('/etiquetas', function () use ($app) {
 	global $twig;
 		echo $twig->render('prueba.php'); 
+});
+
+$app->get('/sorteo', function () use ($app) {
+		Pregunta::sortear(3);
 });
 
 $app->group('/login', function () use ($app) {
@@ -284,7 +288,8 @@ $app->get('/toJSON', function() use ($app){
 					array("id"=>4, "texto"=>"respuesta 1.4")
 			   )
 	);
-	echo json_encode($p);
+	
+	echo json_encode(Cuestionario::toJSON($p));
 }); 
 
 $app->get('/array', function() use ($app){
