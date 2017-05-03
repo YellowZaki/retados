@@ -63,7 +63,10 @@ class Pregunta {
 	private static function guardarRespuestas($idPregunta, $respuestaCorrecta, $respuestas){
 		$app = \Slim\Slim::getInstance();
 		
+		error_log("Los valores que me llegan son: ".json_encode($respuestas));
+		
 		foreach ($respuestas as $r){
+			
 			Respuesta::guardar($r);
 		}
 	}
