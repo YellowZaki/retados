@@ -311,7 +311,7 @@ $app->get('/cuestionario', function() use ($app){
 			   )
 	);
 	
-	echo json_encode(Cuestionario::toJSON($p));
+	echo json_encode($p);
 }); 
 
 $app->get('/array', function() use ($app){
