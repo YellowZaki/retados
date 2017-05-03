@@ -116,27 +116,6 @@ $app->get('/carlos', function () use ($app){
 
 	
 $app->group('/respuestas', function() use ($app){
-
-	$app->group('/buscar', function () use ($app) {
-		
-		$app->get('/porTexto', function() use ($app){
-				global $twig;
-				
-				$valores=array();
-				
-				$valor=$app->request()->get('texto');
-			    $pdo=$app->db;
-			    
-			    $p=AccesoDatos::listar($pdo,"preguntas","texto","TEXTO like '%$valor%'");
-			    
-			    // $pdo->query(select '/buscar' from "PREGUNTAS" $where TEXTO like '%$valor%')->fetchAll(PDO::FETCH_ASSOC
-			
-				return json_encode($p);
-				 
-			});
-			
-		});
-		
 		
     $app->get('/', function() use ($app){
 		global $twig;
@@ -177,18 +156,17 @@ $app->group('/preguntas', function() use ($app){
 		$app->get('/porTexto', function() use ($app){
 				global $twig;
 				
-				$valores=array(
-					"id_preguntas"=>$app->request()->get('lc')
-				);
+				$valores=array();
 				
-				$pdo=$app->db;
-				$rsdo=$AccesoDatos::listar($pdo, "preguntas","texto","texto like '% %' ");
+				$valor=$app->request()->get('texto');
+			    $pdo=$app->db;
+			    
+			    $p=AccesoDatos::listar($pdo,"PREGUNTAS","texto","texto like '%".$app->request()->get('valor')."%'");
+			    
+			    // $pdo->query(select '/buscar' from "PREGUNTAS" $where TEXTO like '%$valor%')->fetchAll(PDO::FETCH_ASSOC
 			
-				
-				/*$valores=array('comentarios'=>$r);
-				echo $twig->render('Pregunta.php',$valores);  
-				 */
-				 echo json_encode($rsdo);
+				return json_encode($p);
+				 
 			});
 });
 			
